@@ -1,0 +1,182 @@
+//#################################################################################################
+main {
+  width: 100%;
+}
+
+// .side-bar {
+//     width: 25%;
+//     min-width: 16.5rem;
+// }
+
+// .side-bar + .main {
+//     margin-left: 25%;
+// }
+
+.main-content {
+  text-align: justify;
+}
+
+.site-nav, .site-header, .site-footer {
+    width: 100%;
+}
+//#################################################################################################
+
+figure {
+  text-align: center;
+  display: inline-block;
+  margin: 1.5rem auto;
+  padding: 0.6rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.06),
+    0 10px 20px rgba(0, 0, 0, 0.06);
+}
+
+figure img {
+  display: block;
+  border-radius: 6px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figure figcaption {
+  text-align: center;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--jt-color-text-muted);
+}
+
+//===============================================
+
+figure.figure-grid {
+  text-align: center;
+}
+
+figure.figure-grid .image-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+figure.figure-grid img {
+  height: 200px;
+  width: auto;
+  max-width: 50%;
+  object-fit: contain;
+}
+
+//#################################################################################################
+
+table, th, td {
+  border: 2px solid rgba(0, 0, 0, 0.02);
+}
+
+table {
+  th {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  td {
+    text-align: left;
+  }
+}
+
+@mixin hover-table-highlight(
+  $cols,
+  $cell-color: rgba(0, 0, 0, 0.040),
+  $col-color: rgba(0, 0, 0, 0.080),
+  $row-color: rgba(0, 0, 0, 0.080)
+) {
+  table.hover-table {
+    border-collapse: collapse;
+
+    th, td {
+      padding: 0.6rem;
+      position: relative;
+      background-clip: padding-box;
+    }
+
+    /* CELL highlight */
+    td:hover,
+    th:hover {
+      background-color: $cell-color;
+    }
+
+    /* ROW highlight */
+    tbody tr:hover > td:not(:hover),
+    tbody tr:hover > th:not(:hover) {
+      background-color: $row-color;
+    }
+  }
+
+  @for $i from 1 through $cols {
+    table.hover-table:has(tr > *:nth-child(#{$i}):hover)
+      tr > *:nth-child(#{$i}):not(:hover) {
+      background-color: $col-color;
+    }
+  }
+}
+
+@include hover-table-highlight(6);
+
+//#################################################################################################
+
+.text-red {
+  color: #d1242f;
+}
+
+.text-orange {
+  color: #d66d0b;
+}
+
+.text-blue {
+  color: #0969da;
+}
+
+.text-green {
+  color: #1a7f37;
+}
+
+//#################################################################################################
+
+.codeBlock .indent {
+  display: inline-block;
+  margin-left: 1.5em;
+}
+
+.codeBlock .indent2 {
+  display: inline-block;
+  margin-left: 3em;
+}
+
+//#################################################################################################
+
+/* Tăng font inline code, block (``` ) */
+code , pre code {
+  font-size: 0.85rem;
+}
+
+//#################################################################################################
+
+.video-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.video-container video {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.video-caption {
+  margin-top: 0.75rem;
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+}
