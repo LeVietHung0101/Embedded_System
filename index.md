@@ -5,6 +5,7 @@ nav_order: 1
 permalink: /
 ---
 
+Đây là ghi chú cá nhân.
 <!-- 
 
 bundle exec jekyll serve
