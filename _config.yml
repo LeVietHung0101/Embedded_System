@@ -46,3 +46,5 @@ callouts:
     color: red
   codeBlock:
     color: green
+
+math: mathjax

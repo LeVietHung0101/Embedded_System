@@ -19,6 +19,7 @@ main {
 .site-nav, .site-header, .site-footer {
     width: 100%;
 }
+
 //#################################################################################################
 
 figure {
@@ -179,4 +180,8 @@ code , pre code {
   color: #666;
   font-size: 0.9rem;
   font-style: italic;
+}
+
+.main-content .MathJax_Display {
+  text-align: center !important;
 }
