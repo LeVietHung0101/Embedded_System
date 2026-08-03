@@ -300,21 +300,187 @@ Understanding the Differences Between CPU, MCU, MPU, SoC, DSP, ECU, GPU, and FPG
 
 Bus ngoại vi PCIe
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -->
+
+
+
+
+
+<!-- 
+
+
+https://cdn.vector.com/cms/content/products/VN16xx/docs/VN1600_Interface_Family_Manual_EN.pdf
+
+https://support.vector.com/kb#section13
+
+https://marvell.wd1.myworkdayjobs.com/en-US/MarvellCareers/job/Staff-Engineer--Software_2602774?zarsrc=31&utm_source=zalo&utm_medium=zalo&utm_campaign=zalo
+
+https://cdn.vector.com/cms/content/products/VN16xx/docs/VN1600_Interface_Family_Manual_EN.pdf
+
+
+https://support.vector.com/kb#section13
+
+
+https://app.whyengineer.com/
+
+
+https://www.studocu.vn/vn/document/ho-chi-minh-city-university-of-technology/digital-system/sn-ind-1-040-diagnostics-with-capl-since-9/33864791
+
+
+https://www.studocu.vn/vn/document/ho-chi-minh-city-university-of-technology/digital-system/sn-ind-1-040-diagnostics-with-capl-since-9/33864791
+
+
+https://nvdungx.github.io/CAPL-script/
+
+
+https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
+
+
+https://code.claude.com/docs/en/slash-commands
+
+
+https://mcpservers.org/vi/
+
+
+https://code.claude.com/docs/en/vs-code
+
+
+https://agentskills.io/home
+
+
+https://autosartutorials.com/common-terms-used-in-autosar/
+
+
+https://ftp.gnu.org/old-gnu/Manuals/ld-2.9.1/html_node/ld_3.html
+
+
+https://www.csselectronics.com/pages/uds-protocol-tutorial-unified-diagnostic-services
+
+
+https://cdn.vector.com/cms/content/products/Flash_Bootloader/Docs/Vector_Flash_Bootloader_Technical_Reference.pdf
+
+
+An Introduction to the AUTOSAR Memory Stack                  https://rtahotline.etas.com/confluence/display/RH/An+Introduction+to+the+AUTOSAR+Memory+Stack#AnInt…
+
+ Understanding Memory Stack in AUTOSAR: Modules and Functions        https://www.linkedin.com/pulse/understanding-memory-stack-autosar-modules-functions-ahmed-ferganey-…
+
+ The use of the GNU compilers                         
+https://gcc.gnu.org/onlinedocs/gcc/
+
+ Generate/load debug information using Greenhills Compiler          
+https://support.lauterbach.com/kb/articles/generate-load-debug-information-using-greenhills-compiler
+
+
+It's a Linux-powered car world
+
+Automotive Technology Platform Developed for Linux-Based Systems
+
+
+https://www.automotiveworld.com/topics/software-defined-vehicle/virtual-ecus-make-software-innovation-accessible-says-bmw/
+
+
+[1] Autosar Layered Software Architecture
+
+	https://www.autosar.org/fileadmin/standards/R22-11/CP/AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf
+
+
+[2] ISO 17356-4:2005 - Road vehicles - Part 4: OSEK/VDX Communication (COM)
+
+	https://www.iso.org/standard/40118.html
+
+
+[3] ISO 17356-6:2006 - OSEK Implementation Language (OIL)
+
+	https://www.iso.org/standard/40080.html
+
+
+[4] Specification of Communication AUTOSAR CP Release 4.4.0
+
+	https://www.autosar.org/fileadmin/standards/R21-11/CP/AUTOSAR_SWS_COM.pdf
+
+
+https://eio.vn/autosar-rte-runtime-environment-moi-truong-thuc-thi-autosar/
+
+Osektp
+
+Can stack
+
+MCDC
+
+DBUS IPC
+
+Delimeter ASIMS and FST
+
+
+
+
+
+Justed table - secureboot - hsm
+
+Rohde & Schwarz HMP4040
+
+khi một MCU / ECU start, sequence là gì?
+
+các lý do Ecu reset? (power on / software reset / watchdog reset / MCU_STMx reset / ...)
+
+OMA-DM
+
+
+fsdv deg là gì?
+
+no new hazard behavior sau khi OTA?
+
+zonal controller
+
+Thông thường thì làm thế nào để chứng minh vấn đề safety khi mà phần mềm của SDV sẽ liên tục thay đổi ?
+
+Chain of trust
+
+FotaSecureBootMacUpdate
+
+arti in autosar
+
+Single Memory
+
+ Dual Memory
+
+ RTSW reprogramming
+
+ FBL reprogramming
+
+ SWAP
+
+ MMU/Non-MMU
+
+OTA
+
+
+https://embetronicx.com/tutorials/automotive/autosar/run-time-environment-rte-layer-autosar/ 
+
+
+https://www.linkedin.com/pulse/autosar-rte-generation-kaarthick-balakrishnan
+
+
+
+
+
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
