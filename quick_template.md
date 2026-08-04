@@ -224,6 +224,7 @@ Trình bày lại nội dung sau bằng tiếng Việt.
 Yêu cầu:
 - Dịch dễ hiểu, giữ văn phong kỹ thuật.
 - Giữ nguyên mọi thuật ngữ kỹ thuật, keyword và tên riêng bằng tiếng Anh.
+- Không thêm nội dung được suy luận.
 - Không lược bỏ hoặc bổ sung thông tin.
 - Giữ nguyên cấu trúc và định dạng (heading, bảng, danh sách, code...).
 - Đầu ra ở định dạng Markdown.
@@ -240,6 +241,7 @@ Yêu cầu:
 - Trình bày theo dạng "condensed version": rút gọn câu chữ nhưng vẫn giữ gần như toàn bộ thông tin kỹ thuật quan trọng.
 - Ưu tiên diễn đạt trực tiếp, loại bỏ các từ ngữ dư thừa hoặc lặp lại, nhưng không làm thay đổi ý nghĩa.
 - Giữ nguyên mọi thuật ngữ kỹ thuật, keyword và tên riêng bằng tiếng Anh.
+- Không thêm nội dung được suy luận.
 - Giữ nguyên cấu trúc và định dạng (heading, bảng, danh sách, code...) nếu phù hợp.
 - Đầu ra ở định dạng Markdown.
 
