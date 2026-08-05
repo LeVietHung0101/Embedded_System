@@ -284,15 +284,11 @@ Việc ứng dụng HSM sẽ đem lại các lợi ích sau:
 
 Tuy nhiên, cách triển khai này yêu cầu sự phối hợp phức tạp giữa HSM và main processor, đồng thời phải đáp ứng các yêu cầu của automotive OEM.
 
----
-
 ## Use Case 2: Message Authentication
 
 Message Authentication là cơ chế gắn **Message Authentication Code (MAC)** vào mỗi message để bên nhận có thể xác minh tính xác thực của dữ liệu. Tuy nhiên, việc tạo và kiểm tra MAC cho từng message làm tăng processor load trên ECU, đặc biệt với CAN FD, nơi các frame được truyền liên tiếp với tần suất cao.
 
 Việc sử dụng HSM giúp giảm tải cho main processor bằng cách hỗ trợ xử lý các phép tính liên quan đến MAC. Tuy nhiên, dữ liệu phải được trao đổi giữa main processor và HSM, tạo ra communication overhead. Vì vậy, HSM firmware cần được tối ưu để giảm communication overhead, đặc biệt trong các hệ thống sử dụng CAN FD có tần suất truyền message cao.
-
----
 
 ## Use Case 3: Vehicle-to-Grid Communication
 
@@ -303,14 +299,143 @@ Việc ứng dụng HSM sẽ đem lại các lợi ích sau:
 - Rút ngắn thời gian thiết lập kết nối **TLS**.
 - Cô lập các dữ liệu bảo mật như **private keys** khỏi phần còn lại của hệ thống.
 
----
-
 ## Xu hướng ứng dụng của HSM
 
 Các use case trên cho thấy **HSM firmware** hiện đã phải đáp ứng nhiều yêu cầu khác nhau. Trong tương lai, HSM còn được kỳ vọng hỗ trợ thêm các ứng dụng như:
 - **Diagnostic over IP (DoIP)** được bảo vệ bằng **TLS**.
 - **Certificate-based diagnostic service** theo tiêu chuẩn ISO để kích hoạt các **security-related diagnostic services**.
 - Xác thực và bảo vệ lưu lượng dữ liệu bằng **Internet Protocol Security (IPsec)**.
+
+---
+
+# Linking an HSM to an AUTOSAR System
+
+## Software Architecture của AUTOSAR
+
+Trong AUTOSAR, software architecture được chia thành hai phần:
+- Application software của ECU.
+- **Basic software**.
+
+Basic software cung cấp nhiều dịch vụ nền tảng đa dạng cho application software, ví dụ như:
+- Bus communications.
+- Diagnostics.
+- Memory management.
+- **Cryptographic services**.
+
+Module **Crypto Service Manager (CSM)** cung cấp các cryptographic services (phục vụ các chức năng liên quan đến security) sau:
+- Symmetrical encryption.
+- Asymmetrical encryption.
+- Computation of cryptographic checksums.
+- Generation and verification of MACs.
+- Generation and verification of signatures.
+- Generation of random numbers.
+
+Ngoài các cryptographic services, CSM còn cung cấp quyền truy cập đến một **database** để lưu trữ các thông tin liên quan đến security, ví dụ như cryptographic keys, certificates và application data. Tùy theo cấu hình, dữ liệu có thể được đọc, ghi hoặc trao đổi thông qua cryptographic protocol. CSM còn hỗ trợ tạo (derive) các cryptographic keys mới từ dữ liệu bí mật đã được lưu trữ. Để đảm bảo các dữ liệu cần bảo vệ luôn nằm trong database, các cryptographic services sẽ truy cập trực tiếp vào dữ liệu trong database.
+
+Các phép toán cryptographic được thực hiện bởi các **crypto drivers (CRYPTO)**. Có hai loại crypto driver:
+- **Software Driver (CRYPTO SW)**: Sử dụng software library chứa các thuật toán cryptographic.
+- **Hardware Driver**: Hỗ trợ tích hợp cryptographic hardware accelerators và **HSM** vào hệ thống AUTOSAR.
+
+CSM giao tiếp với các crypto drivers thông qua lớp trung gian **Crypto Interface (CRYIF)**. Nhờ CRYIF, các giải pháp software và hardware có thể được sử dụng đồng thời trong cùng một hệ thống.
+
+## HSM Crypto Driver (CRYPTO HSM)
+
+Nhiệm vụ chính của HSM crypto driver (CRYPTO HSM) là nhanh chóng chuyển các yêu cầu xử lý (operational instructions) đến HSM firmware. CRYPTO HSM và HSM firmware giao tiếp với nhau thông qua shared memory của microcontroller. Trong shared memory có thể tạo nhiều **HSM channels**, qua đó CRYPTO HSM truyền các operational instructions đến HSM.
+
+Nếu HSM firmware được thiết kế phù hợp thì HSM có thể được truy cập từ nhiều cores của main processor. Cơ chế giao tiếp này cho phép thực hiện secure partitioning giữa hệ thống AUTOSAR và HSM firmware.
+
+Ngoài ra, CRYPTO HSM còn cung cấp nhiều logical processing units, được tạo dựa trên chức năng và cấu hình của HSM firmware, giúp truy cập linh hoạt các chức năng của HSM theo từng nhu cầu cụ thể.
+
+---
+
+# Software Architecture of a Flexible HSM Firmware Implementation
+
+<details markdown="block">
+<summary><i>Các thuật ngữ liên quan</i></summary>
+
+> <table class="hover-table">
+>   <thead>
+>     <tr>
+>       <th>Thuật ngữ</th>
+>       <th>Giải thích</th>
+>     </tr>
+>   </thead>
+>   <tbody>
+>     <tr>
+>       <td><b>Advanced Encryption Standard (AES) Computations</b></td>
+>       <td>
+>         Các phép tính sử dụng thuật toán mã hóa đối xứng <b>AES</b>, bao gồm <b>encryption</b>, <b>decryption</b> và các phép toán liên quan như tạo <b>MAC</b>. Do được sử dụng rất phổ biến nên nhiều <b>HSM</b> tích hợp <b>AES hardware accelerator</b> để tăng tốc các phép tính này.
+>       </td>
+>     </tr>
+>     <tr>
+>       <td><b>RSA (Asymmetric Cryptographic Algorithm)</b></td>
+>       <td>
+>         Thuật toán mã hóa bất đối xứng sử dụng một cặp khóa gồm <b>public key</b> và <b>private key</b>. <b>RSA</b> thường được dùng để mã hóa khóa, tạo và xác minh <b>digital signature</b>, cũng như xác thực trong các giao thức bảo mật.
+>       </td>
+>     </tr>
+>     <tr>
+>       <td><b>Elliptical Curves Operations</b></td>
+>       <td>
+>         Các phép toán trên <b>Elliptic Curve Cryptography (ECC)</b>, sử dụng các tính chất toán học của đường cong elliptic để thực hiện mã hóa, trao đổi khóa và tạo <b>digital signature</b>. <b>ECC</b> đạt mức bảo mật tương đương <b>RSA</b> nhưng sử dụng khóa có kích thước nhỏ hơn.
+>       </td>
+>     </tr>
+>   </tbody>
+> </table>
+{: .codeBlock }
+</details>
+
+Software architecture của HSM firmware cần có tính **modular** và **configurable** để hỗ trợ triển khai nhiều use case khác nhau. Vì vậy, HSM firmware có thể được xây dựng theo kiến trúc tương tự AUTOSAR, mang lại các ưu điểm sau:
+- Áp dụng khái niệm crypto driver của AUTOSAR dưới dạng các cryptographic extension modules.
+- Có thể tái sử dụng các AUTOSAR modules dành cho memory management.
+- HSM firmware được cấu hình bằng các tools quen thuộc của AUTOSAR.
+
+## Crypto Driver trong HSM
+
+Crypto driver là một modular processing unit có AUTOSAR-standardized interface. Một thành phần phân phối (Job Dispatcher) nhận các tác vụ đang chờ (pending tasks) và, tương tự AUTOSAR, phân phối chúng đến các crypto driver tương ứng trong HSM thông qua lớp trung gian CRYIF.
+
+Các processing units trong HSM được chia thành ba nhóm:
+<table class="hover-table">
+  <thead>
+    <tr>
+      <th>Nhóm</th>
+      <th>Chức năng</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hardware</td>
+      <td>Thực hiện các phép toán được hardware accelerated, bao gồm tính toán AES, MAC và tạo random numbers.</td>
+    </tr>
+    <tr>
+      <td>Software</td>
+      <td>Thực hiện các thuật toán được cài đặt bằng software, như thuật toán bất đối xứng RSA và các phép toán trên elliptical curves.</td>
+    </tr>
+    <tr>
+      <td>Special Functions</td>
+      <td>Thực hiện các chức năng theo yêu cầu của từng OEM hoặc ECU.</td>
+    </tr>
+  </tbody>
+</table>
+
+Kiến trúc này giúp HSM firmware có tính portability cao vì các module phụ thuộc hardware được đóng gói (encapsulated). Ngoài ra, bằng cách tích hợp các software libraries, HSM firmware có thể linh hoạt bổ sung thêm các phép toán cryptographic khác.
+
+## Memory Management của HSM
+
+Memory management của HSM cũng cần có tính linh hoạt. Các trường hợp sử dụng điển hình gồm:
+- **Message authentication**: lưu trữ nhiều symmetrical keys có kích thước nhỏ.
+- **TLS với trạm sạc** hoặc **diagnostic tester**: lưu trữ một số lượng nhỏ certificates, nhưng mỗi certificate có kích thước lớn hơn nhiều so với symmetrical key.
+
+Database, còn gọi là Secure Storage, sử dụng các basic software modules hiện có để quản lý memory và lưu trữ an toàn dữ liệu trong nonvolatile memory của HSM. Secure Storage hỗ trợ:
+- Redundant data storage (lưu trữ dữ liệu dự phòng).
+- Memory partitioning (phân vùng bộ nhớ).
+
+## Configuration của HSM Firmware
+
+Tài nguyên computing và memory của HSM hardware là hữu hạn. Vì vậy, HSM firmware cần được cấu hình phù hợp với từng application case để sử dụng hiệu quả các tài nguyên sẵn có. Việc cấu hình bao gồm:
+- Kích hoạt hoặc vô hiệu hóa các thuật toán cryptographic.
+- Tối ưu memory layout của database.
+
+Các thiết lập này được thực hiện bằng các AUTOSAR configuration tools để hỗ trợ cấu hình thuận tiện hơn.
 
 ---
 
