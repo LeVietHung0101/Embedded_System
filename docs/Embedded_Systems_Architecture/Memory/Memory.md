@@ -185,7 +185,7 @@ SRAM có kích thước tương đối lớn so với DRAM, nhưng đổi lại 
 
 ##### Các loại SRAM
 
-Ba loại mô-đun SRAM được sử dụng để nâng cấp bộ nhớ đệm của hệ thống trong các máy tính cũ để chúng có thể lưu trữ nhiều dữ liệu hơn. Chúng ta đã nói về tốc độ cao mà SRAM mang lại ở trên. Một lý do khác khiến SRAM thường nhanh là nó cho phép bộ vi xử lý truy cập vào các nguồn bộ nhớ khác ngoài ổ cứng.
+Ba loại module SRAM được sử dụng để nâng cấp bộ nhớ đệm của hệ thống trong các máy tính cũ để chúng có thể lưu trữ nhiều dữ liệu hơn. Chúng ta đã nói về tốc độ cao mà SRAM mang lại ở trên. Một lý do khác khiến SRAM thường nhanh là nó cho phép bộ vi xử lý truy cập vào các nguồn bộ nhớ khác ngoài ổ cứng.
 
 1. **Asynchronous static RAM (Async SRAM)**: đây là loại SRAM đầu tiên được sản xuất và thường được sử dụng để nâng cấp tiết kiệm chi phí cho các máy tính cũ. Việc nâng cấp có thể bao gồm tăng dung lượng bộ nhớ hoặc tốc độ.
 

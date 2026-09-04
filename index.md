@@ -286,7 +286,6 @@ Refer: [Embedded Systems Engineering Roadmap](https://github.com/m3y54m/embedded
 <!-- 
 Các nội dung cần tìm hiểu:
 
-HSM
 
 Retention RAM
 
