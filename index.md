@@ -300,6 +300,8 @@ Understanding the Differences Between CPU, MCU, MPU, SoC, DSP, ECU, GPU, and FPG
 
 Bus ngoại vi PCIe
 
+V-MODEL
+
 -->
 
 
@@ -310,73 +312,35 @@ Bus ngoại vi PCIe
 
 
 https://cdn.vector.com/cms/content/products/VN16xx/docs/VN1600_Interface_Family_Manual_EN.pdf
-
 https://support.vector.com/kb#section13
-
 https://marvell.wd1.myworkdayjobs.com/en-US/MarvellCareers/job/Staff-Engineer--Software_2602774?zarsrc=31&utm_source=zalo&utm_medium=zalo&utm_campaign=zalo
-
 https://cdn.vector.com/cms/content/products/VN16xx/docs/VN1600_Interface_Family_Manual_EN.pdf
-
-
 https://support.vector.com/kb#section13
-
-
 https://app.whyengineer.com/
-
-
 https://www.studocu.vn/vn/document/ho-chi-minh-city-university-of-technology/digital-system/sn-ind-1-040-diagnostics-with-capl-since-9/33864791
-
-
 https://www.studocu.vn/vn/document/ho-chi-minh-city-university-of-technology/digital-system/sn-ind-1-040-diagnostics-with-capl-since-9/33864791
-
-
 https://nvdungx.github.io/CAPL-script/
-
-
 https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
-
-
 https://code.claude.com/docs/en/slash-commands
-
-
 https://mcpservers.org/vi/
-
-
 https://code.claude.com/docs/en/vs-code
-
-
 https://agentskills.io/home
-
-
 https://autosartutorials.com/common-terms-used-in-autosar/
-
-
 https://ftp.gnu.org/old-gnu/Manuals/ld-2.9.1/html_node/ld_3.html
-
-
 https://www.csselectronics.com/pages/uds-protocol-tutorial-unified-diagnostic-services
-
-
 https://cdn.vector.com/cms/content/products/Flash_Bootloader/Docs/Vector_Flash_Bootloader_Technical_Reference.pdf
-
-
-An Introduction to the AUTOSAR Memory Stack                  https://rtahotline.etas.com/confluence/display/RH/An+Introduction+to+the+AUTOSAR+Memory+Stack#AnInt…
-
- Understanding Memory Stack in AUTOSAR: Modules and Functions        https://www.linkedin.com/pulse/understanding-memory-stack-autosar-modules-functions-ahmed-ferganey-…
-
- The use of the GNU compilers                         
+https://rtahotline.etas.com/confluence/display/RH/An+Introduction+to+the+AUTOSAR+Memory+Stack#AnInt…
+https://www.linkedin.com/pulse/understanding-memory-stack-autosar-modules-functions-ahmed-ferganey-…
 https://gcc.gnu.org/onlinedocs/gcc/
-
- Generate/load debug information using Greenhills Compiler          
 https://support.lauterbach.com/kb/articles/generate-load-debug-information-using-greenhills-compiler
-
-
-It's a Linux-powered car world
-
-Automotive Technology Platform Developed for Linux-Based Systems
-
-
 https://www.automotiveworld.com/topics/software-defined-vehicle/virtual-ecus-make-software-innovation-accessible-says-bmw/
+https://eio.vn/autosar-rte-runtime-environment-moi-truong-thuc-thi-autosar/
+https://embetronicx.com/tutorials/automotive/autosar/run-time-environment-rte-layer-autosar/ 
+https://www.linkedin.com/pulse/autosar-rte-generation-kaarthick-balakrishnan
+https://www.iso.org/standard/40118.html
+https://www.autosar.org/fileadmin/standards/R22-11/CP/AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf
+https://www.iso.org/standard/40080.html
+https://www.autosar.org/fileadmin/standards/R21-11/CP/AUTOSAR_SWS_COM.pdf
 
 
 [1] Autosar Layered Software Architecture
@@ -399,68 +363,33 @@ https://www.automotiveworld.com/topics/software-defined-vehicle/virtual-ecus-mak
 	https://www.autosar.org/fileadmin/standards/R21-11/CP/AUTOSAR_SWS_COM.pdf
 
 
-https://eio.vn/autosar-rte-runtime-environment-moi-truong-thuc-thi-autosar/
 
+It's a Linux-powered car world
+Automotive Technology Platform Developed for Linux-Based Systems
 Osektp
-
 Can stack
-
 MCDC
-
 DBUS IPC
-
 Delimeter ASIMS and FST
-
-
-
-
-
 Justed table - secureboot - hsm
-
 Rohde & Schwarz HMP4040
-
 khi một MCU / ECU start, sequence là gì?
-
 các lý do Ecu reset? (power on / software reset / watchdog reset / MCU_STMx reset / ...)
-
 OMA-DM
-
-
 fsdv deg là gì?
-
 no new hazard behavior sau khi OTA?
-
 zonal controller
-
 Thông thường thì làm thế nào để chứng minh vấn đề safety khi mà phần mềm của SDV sẽ liên tục thay đổi ?
-
 Chain of trust
-
 FotaSecureBootMacUpdate
-
 arti in autosar
-
 Single Memory
-
- Dual Memory
-
- RTSW reprogramming
-
- FBL reprogramming
-
- SWAP
-
- MMU/Non-MMU
-
+Dual Memory
+RTSW reprogramming
+FBL reprogramming
+SWAP
+MMU/Non-MMU
 OTA
-
-
-https://embetronicx.com/tutorials/automotive/autosar/run-time-environment-rte-layer-autosar/ 
-
-
-https://www.linkedin.com/pulse/autosar-rte-generation-kaarthick-balakrishnan
-
-
 
 
 
@@ -469,12 +398,219 @@ https://www.linkedin.com/pulse/autosar-rte-generation-kaarthick-balakrishnan
  -->
 
 
+<!--
+Được. Nếu **chỉ sử dụng đúng các nội dung bạn đưa**, không bổ sung chủ đề mới, tôi sẽ nhóm chúng thành các nhóm sau:
+
+## 1. Automotive Linux / SDV Platform
+
+* **It's a Linux-powered car world**
+* **Automotive Technology Platform Developed for Linux-Based Systems**
+* **DBUS IPC**
+* **OMA-DM**
+* **zonal controller**
+* **fsdv deg là gì?**
+* [https://www.automotiveworld.com/topics/software-defined-vehicle/virtual-ecus-make-software-innovation-accessible-says-bmw/](https://www.automotiveworld.com/topics/software-defined-vehicle/virtual-ecus-make-software-innovation-accessible-says-bmw/)
+
+---
+
+## 2. AUTOSAR
+
+* **Can stack**
+* **arti in autosar**
+* [https://autosartutorials.com/common-terms-used-in-autosar/](https://autosartutorials.com/common-terms-used-in-autosar/)
+* [https://eio.vn/autosar-rte-runtime-environment-moi-truong-thuc-thi-autosar/](https://eio.vn/autosar-rte-runtime-environment-moi-truong-thuc-thi-autosar/)
+* [https://embetronicx.com/tutorials/automotive/autosar/run-time-environment-rte-layer-autosar/](https://embetronicx.com/tutorials/automotive/autosar/run-time-environment-rte-layer-autosar/)
+* [https://www.linkedin.com/pulse/autosar-rte-generation-kaarthick-balakrishnan](https://www.linkedin.com/pulse/autosar-rte-generation-kaarthick-balakrishnan)
+* [https://www.autosar.org/fileadmin/standards/R22-11/CP/AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf](https://www.autosar.org/fileadmin/standards/R22-11/CP/AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf)
+* [https://www.autosar.org/fileadmin/standards/R21-11/CP/AUTOSAR_SWS_COM.pdf](https://www.autosar.org/fileadmin/standards/R21-11/CP/AUTOSAR_SWS_COM.pdf)
+
+---
+
+## 3. MCU / ECU Startup & Reset
+
+* **khi một MCU / ECU start, sequence là gì?**
+* **các lý do Ecu reset?**
+
+  * power on
+  * software reset
+  * watchdog reset
+  * MCU_STMx reset
+  * ...
+
+---
+
+## 4. Memory / Bootloader / Reprogramming
+
+* **Single Memory**
+* **Dual Memory**
+* **RTSW reprogramming**
+* **FBL reprogramming**
+* **SWAP**
+* **MMU/Non-MMU**
+* [https://cdn.vector.com/cms/content/products/Flash_Bootloader/Docs/Vector_Flash_Bootloader_Technical_Reference.pdf](https://cdn.vector.com/cms/content/products/Flash_Bootloader/Docs/Vector_Flash_Bootloader_Technical_Reference.pdf)
+* [https://rtahotline.etas.com/confluence/display/RH/An+Introduction+to+the+AUTOSAR+Memory+Stack#AnInt…](https://rtahotline.etas.com/confluence/display/RH/An+Introduction+to+the+AUTOSAR+Memory+Stack#AnInt…)
+* [https://www.linkedin.com/pulse/understanding-memory-stack-autosar-modules-functions-ahmed-ferganey-…](https://www.linkedin.com/pulse/understanding-memory-stack-autosar-modules-functions-ahmed-ferganey-…)
+* [https://ftp.gnu.org/old-gnu/Manuals/ld-2.9.1/html_node/ld_3.html](https://ftp.gnu.org/old-gnu/Manuals/ld-2.9.1/html_node/ld_3.html)
+* [https://gcc.gnu.org/onlinedocs/gcc/](https://gcc.gnu.org/onlinedocs/gcc/)
+* [https://support.lauterbach.com/kb/articles/generate-load-debug-information-using-greenhills-compiler](https://support.lauterbach.com/kb/articles/generate-load-debug-information-using-greenhills-compiler)
+
+---
+
+## 5. Cybersecurity / Secure Boot
+
+* **Justed table - secureboot - hsm**
+* **Chain of trust**
+* **FotaSecureBootMacUpdate**
+
+https://agnile.com/blog/secure-boot-automotive-ecus-chain-of-trust
+
+---
+
+## 6. OTA / Software Update
+
+* **OTA**
+* **FotaSecureBootMacUpdate**
+* **no new hazard behavior sau khi OTA?**
+
+---
+
+## 7. Functional Safety / SDV Safety
+
+* **Thông thường thì làm thế nào để chứng minh vấn đề safety khi mà phần mềm của SDV sẽ liên tục thay đổi ?**
+* **no new hazard behavior sau khi OTA?**
+* **zonal controller**
+* **fsdv deg là gì?**
+
+---
+
+## 8. CAN / Diagnostics / CAPL / Vector
+
+* **Can stack**
+* [https://cdn.vector.com/cms/content/products/VN16xx/docs/VN1600_Interface_Family_Manual_EN.pdf](https://cdn.vector.com/cms/content/products/VN16xx/docs/VN1600_Interface_Family_Manual_EN.pdf)
+* [https://support.vector.com/kb#section13](https://support.vector.com/kb#section13)
+* [https://www.studocu.vn/vn/document/ho-chi-minh-city-university-of-technology/digital-system/sn-ind-1-040-diagnostics-with-capl-since-9/33864791](https://www.studocu.vn/vn/document/ho-chi-minh-city-university-of-technology/digital-system/sn-ind-1-040-diagnostics-with-capl-since-9/33864791)
+* [https://nvdungx.github.io/CAPL-script/](https://nvdungx.github.io/CAPL-script/)
+* [https://www.csselectronics.com/pages/uds-protocol-tutorial-unified-diagnostic-services](https://www.csselectronics.com/pages/uds-protocol-tutorial-unified-diagnostic-services)
+
+---
+
+## 9. Hardware / Lab Equipment
+
+* **Rohde & Schwarz HMP4040**
+
+---
+
+## 10. AI / Developer Tools
+
+* [https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+* [https://code.claude.com/docs/en/slash-commands](https://code.claude.com/docs/en/slash-commands)
+* [https://mcpservers.org/vi/](https://mcpservers.org/vi/)
+* [https://code.claude.com/docs/en/vs-code](https://code.claude.com/docs/en/vs-code)
+* [https://agentskills.io/home](https://agentskills.io/home)
+* [https://app.whyengineer.com/](https://app.whyengineer.com/)
+
+---
+
+## 11. Các nội dung chưa đủ rõ để phân nhóm chính xác
+
+* **Osektp**
+* **MCDC**
+* **Delimeter ASIMS and FST**
+* **fsdv deg**
+* **arti in autosar**
+
+Một số trong đó có khả năng là viết tắt/typo của thuật ngữ kỹ thuật cụ thể. Khi xác định được tên đầy đủ, chúng có thể được chuyển vào các nhóm **AUTOSAR, Safety, Automotive Linux hoặc Communication** tương ứng.
+
+### Nhìn gọn lại
+
+| #  | Nhóm                            | Nội dung chính                                                     |
+| -- | ------------------------------- | ------------------------------------------------------------------ |
+| 1  | Automotive Linux / SDV Platform | Linux-powered car, Linux platform, D-Bus, OMA-DM, Zonal Controller |
+| 2  | AUTOSAR                         | CAN Stack, ARTI, RTE, AUTOSAR architecture/COM                     |
+| 3  | MCU / ECU Fundamentals          | Startup sequence, Reset causes                                     |
+| 4  | Memory / Bootloader             | Single/Dual Memory, FBL, RTSW, SWAP, MMU                           |
+| 5  | Cybersecurity                   | Secure Boot, HSM, Chain of Trust, MAC                              |
+| 6  | OTA                             | OTA, FotaSecureBootMacUpdate                                       |
+| 7  | Safety / SDV Safety             | Hazard, Safety evidence, continuous software change                |
+| 8  | CAN / Diagnostics / Tools       | Vector, CAPL, UDS, VN1600                                          |
+| 9  | Hardware                        | Rohde & Schwarz HMP4040                                            |
+| 10 | AI / Developer Tools            | Karpathy, Claude Code, MCP, Agent Skills                           |
+| 11 | Chưa rõ                         | OSEKTP, MCDC, ASIMS/FST, FSDV DEG, ARTI                            |
+
+**Lưu ý:** một số nội dung nằm ở giao điểm của nhiều nhóm. Ví dụ **FotaSecureBootMacUpdate** đồng thời thuộc *Cybersecurity + OTA + Reprogramming*, còn **CAN Stack** đồng thời thuộc *AUTOSAR + CAN/Communication*. Chúng được đặt vào nhóm được cho là **chủ đề chính**, thay vì lặp lại mọi item ở nhiều nhóm.
+
+--->
 
 
 
 
+<!--
 
+Embedded → Automotive ECU → AUTOSAR/Linux → Security/Safety → OTA → SDV.
 
+                    SDV
+                     │
+          ┌──────────┴──────────┐
+          │                     │
+      Safety                  Security
+          │                     │
+          └──────────┬──────────┘
+                     │
+              OTA / Reprogramming
+                     │
+          ┌──────────┴──────────┐
+          │                     │
+      AUTOSAR              Automotive Linux
+          │                     │
+          └──────────┬──────────┘
+                     │
+             Automotive ECU
+                     │
+          ┌──────────┴──────────┐
+          │                     │
+         MCU                  Memory
+          │                     │
+          └──────────┬──────────┘
+                     │
+             Embedded Fundamentals
+
+① Embedded Fundamentals
+→ MCU, CPU, memory, startup, reset, compiler, linker
+
+② Automotive ECU
+→ ECU architecture, RTOS/OS, sensors, actuators
+
+③ AUTOSAR Classic
+→ MCAL → BSW → RTE → SWC
+
+④ Automotive Communication
+→ CAN → CAN-TP → CAN Stack → Ethernet → SOME/IP → DoIP
+
+⑤ Diagnostics
+→ UDS → DCM → CAPL → CANoe
+
+⑥ Bootloader & Reprogramming
+→ FBL → Flash → RTSW → SWAP → Single/Dual Memory
+
+⑦ Cybersecurity
+→ Cryptography → HSM → Secure Boot → Chain of Trust → Secure Reprogramming
+
+⑧ OTA
+→ FOTA → Secure OTA → Rollback → Update strategy
+
+⑨ Functional Safety
+→ ISO 26262 → HARA → ASIL → Safety Case → OTA Safety
+
+⑩ SDV Architecture
+→ Domain → Zonal → Central Compute → Virtual ECU → Continuous Update
+
+⑪ Automotive Linux
+→ Linux → Process/Thread → IPC → D-Bus → Device Management
+
+⑫ AI / Developer Tools
+→ Claude Code → MCP → Agent → Developer automation
+
+--->
 
 
 

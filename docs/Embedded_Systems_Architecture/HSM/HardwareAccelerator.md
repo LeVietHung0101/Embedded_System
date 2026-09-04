@@ -1,7 +1,7 @@
 ---
 title: Hardware accelerator
 parent: HSM
-nav_order: 2
+nav_order: 3
 ---
 
 <h1>Hardware accelerator</h1>

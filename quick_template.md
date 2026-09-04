@@ -2,6 +2,15 @@ bundle exec jekyll serve
 
 ==============================================================================================
 
+[Complete list of github markdown emoji markup](https://gist.github.com/rxaviers/7360908#file-gistfile1-md)
+
+Up arrow (↑): &uarr;
+Down arrow (↓): &darr;
+Left arrow (←): &larr;
+Right arrow (→): &rarr;
+Double headed arrow (↔): &harr;
+==============================================================================================
+
 {: .note }
 {: .codeBlock }
 
@@ -243,6 +252,23 @@ Yêu cầu:
 - Giữ nguyên mọi thuật ngữ kỹ thuật, keyword và tên riêng bằng tiếng Anh.
 - Không thêm nội dung được suy luận.
 - Giữ nguyên cấu trúc và định dạng (heading, bảng, danh sách, code...) nếu phù hợp.
+- Đầu ra ở định dạng Markdown.
+
+Nội dung:
+<PASTE_CONTENT_HERE>
+
+
+==============================================================================================
+
+Sử dụng nội dung dưới đây để trả lời câu hỏi "<PASTE_CONTENT_HERE> ?" bằng tiếng Việt.
+
+Yêu cầu:
+- Chỉ sử dụng thông tin có trong nội dung được cung cấp.
+- Ưu tiên diễn đạt trực tiếp, rõ ràng và chính xác.
+- Loại bỏ các từ ngữ dư thừa hoặc lặp lại nhưng không làm thay đổi ý nghĩa.
+- Không tự suy luận hoặc bổ sung thông tin không có trong nội dung.
+- Giữ nguyên các thuật ngữ kỹ thuật quan trọng khi cần thiết.
+- Tập trung trả lời trực tiếp câu hỏi.
 - Đầu ra ở định dạng Markdown.
 
 Nội dung:
