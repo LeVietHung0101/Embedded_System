@@ -287,8 +287,6 @@ Refer: [Embedded Systems Engineering Roadmap](https://github.com/m3y54m/embedded
 Các nội dung cần tìm hiểu:
 
 
-Retention RAM
-
 FOTA and SOTA in automotive
 
 Understanding the Differences Between CPU, MCU, MPU, SoC, DSP, ECU, GPU, and FPGA
@@ -398,17 +396,34 @@ OTA
 
 
 <!--
-Được. Nếu **chỉ sử dụng đúng các nội dung bạn đưa**, không bổ sung chủ đề mới, tôi sẽ nhóm chúng thành các nhóm sau:
-
 ## 1. Automotive Linux / SDV Platform
 
 * **It's a Linux-powered car world**
 * **Automotive Technology Platform Developed for Linux-Based Systems**
-* **DBUS IPC**
-* **OMA-DM**
+
+
 * **zonal controller**
 * **fsdv deg là gì?**
 * [https://www.automotiveworld.com/topics/software-defined-vehicle/virtual-ecus-make-software-innovation-accessible-says-bmw/](https://www.automotiveworld.com/topics/software-defined-vehicle/virtual-ecus-make-software-innovation-accessible-says-bmw/)
+
+
+
+### DBUS IPC
+
+https://www.geeksforgeeks.org/operating-systems/inter-process-communication-ipc/
+https://www.linkedin.com/pulse/inter-processor-communication-ipc-using-shared-memory-suraj-biradar-cjjif
+https://dbus.freedesktop.org/doc/dbus-tutorial.html
+https://stackoverflow.com/questions/33887063/difference-between-dbus-and-other-interprocess-communications-method
+https://emlogic.no/2023/11/dbus-and-embedded-linux/
+
+
+
+
+
+
+
+
+
 
 ---
 
