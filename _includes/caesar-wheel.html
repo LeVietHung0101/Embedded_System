@@ -1,0 +1,127 @@
+<!-- _includes/caesar-wheel.html -->
+<style>
+  .caesar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  .wheel-wrapper {
+    position: relative;
+    width: 340px;
+    height: 340px;
+    user-select: none;
+    margin: 1rem 0;
+  }
+  .wheel {
+    position: absolute;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+  }
+  /* Vòng ngoài chứa vạch chia nan hoa */
+  .outer-wheel {
+    width: 340px;
+    height: 340px;
+    background: conic-gradient(
+      from -6.92deg,
+      #ffffff 0deg,
+      #ffffff 13.08deg,
+      #000000 13.08deg,
+      #000000 13.84deg,
+      #ffffff 13.84deg
+    );
+    /* Tạo hiệu ứng nan hoa chia 26 phần bằng nhau */
+    background-size: 100% 100%;
+    background-image: repeating-conic-gradient(
+      from -6.92deg,
+      #ffffff 0deg 13.08deg,
+      #000000 13.08deg 13.85deg
+    );
+    color: #000000;
+    top: 0;
+    left: 0;
+  }
+  /* Vòng trong */
+  .inner-wheel {
+    width: 230px;
+    height: 230px;
+    background-color: #ffffff;
+    color: #000000;
+    top: 55px;
+    left: 55px;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 0 0 2px #000000;
+  }
+  /* Tâm vòng xoay */
+  .center-dot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: #000000;
+    border-radius: 50%;
+    top: 158px;
+    left: 158px;
+    z-index: 10;
+  }
+  .wheel .letter, .wheel .index-num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    line-height: 1;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    text-align: center;
+  }
+  .wheel .letter {
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .wheel .index-num {
+    font-size: 11px;
+    color: #555555;
+  }
+  .controls-bar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  .controls-bar button {
+    padding: 8px 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: 1px solid #000;
+    background-color: #f0f0f0;
+    color: #000;
+    cursor: pointer;
+  }
+  .controls-bar button:hover {
+    background-color: #e0e0e0;
+  }
+</style>
+
+<div class="caesar-container">
+  <h3>Caesar Cipher Wheel</h3>
+  
+  <div class="wheel-wrapper">
+    <div class="wheel outer-wheel" id="outerWheel"></div>
+    <div class="wheel inner-wheel" id="innerWheel"></div>
+    <div class="center-dot"></div>
+  </div>
+
+  <div class="controls-bar">
+    <button type="button" onclick="window.rotateCaesarWheel(-1)">◄ Decrease</button>
+    <span id="shiftDisplay"><b>(Shift) K = 0</b></span>
+    <button type="button" onclick="window.rotateCaesarWheel(1)">Increase ►</button>
+  </div>
+</div>
+
+<script src="{{ '/assets/js/caesar-wheel.js' | relative_url }}"></script>

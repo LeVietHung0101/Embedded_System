@@ -772,15 +772,3 @@ Giải pháp cần đáp ứng các yêu cầu này một cách hiệu quả và
 [5] [AUTOSAR, "AUTOSAR Security Overview"](https://www.autosar.org/fileadmin/standards/R24-11/FO/AUTOSAR_FO_EXP_SecurityOverview.pdf)
 
 [6] [Renesas, "HW/SW Security Mechanisms for Future Automotive Society"](https://www.renesas.com/en/document/whp/hwsw-security-mechanisms-future-automotive-society?srsltid=AfmBOorP0822bjvAIkhGyg1LjkZ3rXLYtyfQKg0KGX3U_gFOZPjBfxpT)
-
-
-
-
-
-
-<!-- 
-
-
-[5] [Infineon Technologies, "AURIX™ Hardware Security Module Training"](https://assets.infineon.com/is/content/infineon/infineon/row/public/documents/10/56/Infineon-AURIX_Hardware_Security_Module-Training-EN.pdf?utm_source=chatgpt.com)
-
--->

@@ -273,3 +273,17 @@ Yêu cầu:
 
 Nội dung:
 <PASTE_CONTENT_HERE>
+
+==============================================================================================
+
+Thẻ <iframe> (Inline Frame) cho phép nhúng trực tiếp toàn bộ một trang web hoặc công cụ tương tác từ địa chỉ khác vào trang web của bạn.
+
+<iframe 
+  src="URL_TRANG_WEB_CAN_NHUNG" 
+  width="100%" 
+  height="500px" 
+  style="border: none; border-radius: 8px;" 
+  title="Mô tả trang web nhúng"
+  loading="lazy"
+  allowfullscreen>
+</iframe>

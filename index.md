@@ -403,7 +403,7 @@ OTA
 
 
 * **zonal controller**
-* **fsdv deg là gì?**
+
 * [https://www.automotiveworld.com/topics/software-defined-vehicle/virtual-ecus-make-software-innovation-accessible-says-bmw/](https://www.automotiveworld.com/topics/software-defined-vehicle/virtual-ecus-make-software-innovation-accessible-says-bmw/)
 
 
