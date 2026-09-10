@@ -58,6 +58,20 @@ Nhờ ranh giới bảo mật phần cứng này, Host CPU có thể gửi yêu 
 {: .codeBlock }
 </details>
 
+<details markdown="block">
+<summary><i>Cryptographic operation</i></summary>
+
+> Cryptographic operation (thao tác bảo mật) là một hành động hoặc quá trình xử lý dữ liệu sử dụng các thuật toán toán học dựa trên nền tảng cryptography nhằm bảo vệ thông tin.
+> 
+> Các thao tác bảo mật gồm:
+> - **Encryption**: Mã hoá plaintext thành ciphertext.
+> - **Decryption**: Giải mã ciphertext thành plaintext.
+> - **Hashing**: sử dụng thuật toán để ánh xạ dữ liệu có độ dài bất kỳ thành đầu ra có độ dài cố định để lưu trữ và truy xuất thông tin nhanh chóng.
+> - **Digital Signing / Signing**: Dùng private key để ký lên dữ liệu nhằm xác thực danh tính người gửi và đảm bảo tính nguyên vẹn của tài liệu.
+> - **Verification**: Kiểm tra tính hợp lệ của chữ ký số bằng public key
+{: .codeBlock }
+</details>
+
 ---
 
 ## 1.2. Lý do cần HSM

@@ -298,7 +298,9 @@ Understanding the Differences Between CPU, MCU, MPU, SoC, DSP, ECU, GPU, and FPG
 Bus ngoại vi PCIe
 
 V-MODEL
-
+𝐒𝐞𝐜𝐮𝐫𝐞 𝐝𝐢𝐠𝐢𝐭𝐚𝐥 𝐬𝐢𝐠𝐧𝐚𝐭𝐮𝐫𝐞 (𝐄𝐂𝐃𝐒𝐀)-based identify verification.
+𝐄𝐂𝐃𝐇 for 𝐬𝐞𝐜𝐮𝐫𝐞 𝐤𝐞𝐲 𝐞𝐱𝐜𝐡𝐚𝐧𝐠𝐞
+𝐀𝐄𝐒-𝐆𝐌𝐀𝐂 for encrypted 𝐜𝐨𝐦𝐦𝐮𝐧𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐨𝐯𝐞𝐫 𝐂𝐀𝐍.
 -->
 
 
