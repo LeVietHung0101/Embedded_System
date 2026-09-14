@@ -1,7 +1,7 @@
 ---
 title: Hardware accelerator
-parent: HSM
-nav_order: 3
+parent: Hardware Security
+nav_order: 5
 ---
 
 <h1>Hardware accelerator</h1>

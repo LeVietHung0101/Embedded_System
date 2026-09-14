@@ -1,6 +1,6 @@
 ---
 title: HSE
-parent: HSM
+parent: Hardware Security
 nav_order: 4
 ---
 
@@ -42,7 +42,7 @@ HSE tuân thủ:
 
 HSE được thiết kế riêng cho nhu cầu của automotive systems, với các tính năng như:
 
-- **Runtime Security & Key Management**: Application chỉ có thể thao tác với key được lưu trong HSE Key Store thông qua Identifier/Handle chứ không bao giờ đọc trực tiếp được dữ liệu khóa thô. Không giới hạn thực tế về số lượng key cũng như kích thước hay số lượng certificates. Sử dụng HSE Trust Center để đơn giản hóa quy trình nạp cryptographic key ngay tại nhà máy của khách hàng cũng như trong quá trình triển khai thực tế.
+- **Runtime Security & Key Management**: Application chỉ có thể thao tác với key được lưu trong HSE Key Store thông qua handle chứ không bao giờ đọc trực tiếp key. Không giới hạn thực tế về số lượng key cũng như kích thước hay số lượng certificates. Sử dụng HSE Trust Center để đơn giản hóa quy trình nạp cryptographic key ngay tại nhà máy của khách hàng cũng như trong quá trình triển khai thực tế.
 
 - **Isolation of security-critical assets**: Bảo vệ encryption keys, thông tin xác thực và các chính sách bảo mật độc lập ở cấp độ phần cứng. Ngay cả khi application core chính bị tấn công hoặc chiếm quyền kiểm soát, các key và dữ liệu lưu bên trong HSE vẫn không bị lộ.
 

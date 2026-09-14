@@ -1,8 +1,7 @@
 ---
 title: HSM
-parent: Embedded Systems Architecture
-nav_order: 11
-has_children: true
+parent: Hardware Security
+nav_order: 3
 ---
 
 <h1>Hardware Security Module (HSM)</h1>

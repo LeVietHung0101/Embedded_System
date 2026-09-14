@@ -1,6 +1,6 @@
 ---
 title: EVITA
-parent: HSM
+parent: Hardware Security
 nav_order: 2
 ---
 
