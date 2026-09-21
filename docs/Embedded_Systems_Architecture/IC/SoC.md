@@ -1,7 +1,7 @@
 ---
 title: SoC
-parent: Embedded Systems Architecture
-nav_order: 30
+parent: IC
+nav_order: 4
 ---
 
 <h1>System on a Chip (SoC)</h1>
@@ -28,7 +28,7 @@ Các SoC nhỏ gọn đã trở thành các giải pháp không thể thiếu tr
 
 # 2. Lịch sử của SoC
 
-**Giai đoạn 1970**: Theo [Computer History Museum (CHM)](https://computerhistory.org/)), SoC đầu tiên xuất hiện trong một chiếc đồng hồ LCD vào năm 1974. Cho đến lúc đó, các vi xử lý (microprocessors) chỉ là các con chip độc lập đòi hỏi sự hỗ trợ của các con chip bên ngoài.
+**Giai đoạn 1970**: Theo Computer History Museum (CHM), SoC đầu tiên xuất hiện trong một chiếc đồng hồ LCD vào năm 1974. Cho đến lúc đó, các vi xử lý (microprocessors) chỉ là các con chip độc lập đòi hỏi sự hỗ trợ của các con chip bên ngoài.
 
 **Giai đoạn 1980-90**: Những tiến bộ trong công nghệ sản xuất chất bán dẫn đã làm cho việc tích hợp nhiều thành phần hơn trên một con chip duy nhất trở nên khả thi. Sự tích hợp tín hiệu hỗn hợp (mixed-signal integration) cho phép các con chip xử lý cả tín hiệu tương tự (analog) và tín hiệu số (digital).
 
@@ -40,31 +40,33 @@ Các SoC nhỏ gọn đã trở thành các giải pháp không thể thiếu tr
 
 ---
 
-# 3. Các thành phần và Cấu trúc của SoC
+# 3. Các thành phần của SoC
 
-**System on a Chip (SoC)** chứa hầu như tất cả các khối mạch chức năng cần thiết cho một hệ thống hoàn chỉnh trên một con chip duy nhất. Các thành phần có trên bất kỳ SoC nào bao gồm:
+**System on a Chip (SoC)** chứa hầu như tất cả các khối mạch chức năng cần thiết cho một hệ thống hoàn chỉnh trên một con chip duy nhất. Tuy nhiên, nó không tuân theo bất kỳ tiêu chuẩn cụ thể nào về cấu trúc mạch bên trong.
 
-- **Cores**: Bộ xử lý đơn hoặc đa lõi dưới dạng microcontroller, microprocessor, digital signal processor (DSP) hoặc application-specific instruction set processor. **Multiprocessor System called multiprocessor System-on-Chip (MPSoC)** có nhiều hơn một processor core.
+Các thành phần có trên bất kỳ SoC nào bao gồm:
 
-- **Memory blocks**: RAM, ROM, FLASH, EEPROM và/hoặc cache memory.
+- **Central Processing Unit (CPU)**: Bộ xử lý đơn hoặc đa lõi dưới dạng microcontroller (MCU), microprocessor (MPU), digital signal processor (DSP) hoặc application-specific instruction set processor. **Multiprocessor System called multiprocessor System-on-Chip (MPSoC)** có nhiều hơn một processor core.
 
-- **External Interfaces**: cho các giao thức truyền thông có dây như USB, FireWire, USART, SPI, I2C, Ethernet.
+- **Memory**: RAM, ROM, FLASH, EEPROM và/hoặc cache memory.
 
-- **Wireless Capabilities**: cho các giao thức truyền thông không dây như WiFi hoặc Bluetooth và các khả năng tần số vô tuyến khác.
+- **External Interfaces**: cho các giao thức truyền thông có dây như USB, FireWire, USART, SPI, I2C, Ethernet, HDMI.
 
-- **Graphical Processing Unit (GPU)**: để tăng tốc các tác vụ cụ thể.
+- **Wireless communication interfaces**: cho các giao thức truyền thông không dây như WiFi hoặc Bluetooth và các khả năng tần số vô tuyến khác.
+
+- **Graphical Processing Unit (GPU)**: để tăng tốc các tác vụ đồ hoạ.
 
 - **Timing sources**: mạch vòng khóa pha (PLL - phase-locked loops), bộ dao động (oscillators).
 
+- **Power Management**: Các bộ điều chỉnh điện áp (voltage regulators).
+
 - **Peripherals**: bộ định thời (counter-timers, real-time timers), bộ tạo tín hiệu khởi động nguồn (power-on reset generator).
 
-- **Analog interfaces**: Bộ chuyển đổi tín hiệu ADC (Analog-to-Digital Converter) và DAC (Digital-to-Analog Converter).
+- **Analog/Digital Signal Processing:**: Bộ chuyển đổi tín hiệu ADC (Analog-to-Digital Converter) và DAC (Digital-to-Analog Converter).
 
 - **Signal Processing**: Khối mạch xử lý tín hiệu digital, analog và mixed-signal cho bất kỳ sensors, actuators, thu thập dữ liệu và phân tích dữ liệu nào.
 
-- **Intra-chip Communication**: hệ thống truyền thông nội chip kết nối các khối mạch riêng lẻ qua interface bus (chẳng hạn như bus độc quyền hoặc chuẩn công nghiệp *AMBA* của ARM) hoặc mạng liên lạc nội bộ mới hơn gọi là *networks-on-chip (NoC)*. Trong đó, các DMA controllers định tuyến dữ liệu trực tiếp giữa các giao diện ngoài và bộ nhớ, không cần sự can thiệp của processor core nhằm tăng data throughput của SoC.
-
-- Các bộ điều chỉnh điện áp (voltage regulators) và mạch quản lý nguồn.
+- **Intra-chip Communication**: hệ thống truyền thông nội chip kết nối các khối mạch riêng lẻ qua interface bus (chẳng hạn như bus độc quyền hoặc chuẩn công nghiệp *AMBA* của ARM) hoặc mạng liên lạc nội bộ mới hơn gọi là *networks-on-chip (NoC)*. Các DMA controllers định tuyến dữ liệu trực tiếp giữa các giao diện ngoài và bộ nhớ, không cần sự can thiệp của processor core nhằm tăng data throughput của SoC.
 
 
 <details markdown="block">
@@ -94,8 +96,6 @@ Các SoC nhỏ gọn đã trở thành các giải pháp không thể thiếu tr
 </details>
 
 
-
-
 Với công nghệ SoC, các kỹ sư có thể giảm lãng phí năng lượng, tiết kiệm chi phí và thu nhỏ hơn nữa các thiết bị thông qua các phương pháp tích hợp tiên tiến trên một IC duy nhất. Do các đặc tính nhỏ gọn và tiết kiệm năng lượng, các nhà sản xuất đang kết hợp SoC vào các IoT devices, embedded systems mới và thậm chí cả ô tô (automobiles).
 
 Hơn nữa, chúng ta cũng chứng kiến sự chuyển dịch trong công nghệ SoC được sử dụng trên personal computers và laptops để giảm hơn nữa lượng tiêu thụ điện năng và cải thiện hiệu năng. Không gian mạch ít hơn thường dẫn đến ít sinh nhiệt hơn, tiêu thụ ít điện năng hơn và chi phí sản xuất thấp hơn. Điều này cho phép thiết kế thiết bị hiệu quả hơn cho việc phân phối nhiệt, độ trễ tối thiểu và tăng tốc truyền dữ liệu.
@@ -104,9 +104,36 @@ Vì SoC có tính chuyên môn hóa cao, chúng thường được ứng dụng 
 
 ---
 
+# Các loại SoC
+
+Có 4 loại SoC:
+
+- **Microcontroller-based SoC**: SoC được xây dựng xung quanh một microcontroller (μC).
+- **Microprocessor-based SoC**: SoC được xây dựng xung quanh một microprocessor (μP), thường được sử dụng trong điện thoại.
+- **Specialized SoC**: SoC được thiết kế cho các ứng dụng cụ thể không thuộc hai loại trên.
+- **Programmable systems-on-chip (PSoC)**: SoC có phần lớn chức năng là cố định nhưng một số chức năng có thể lập trình lại theo cách tương tự như một FPGA.
+
+
+<figure>
+  <img
+    src="{{ site.baseurl }}\assets\images\Block_diagram_of_a_SoC_built_around_a_microcontroller.png"
+  />
+  <figcaption>Block diagram of a ARM SoC built around a microcontroller<br>
+  Nguồn: <a href="https://en.wikipedia.org/wiki/System_on_a_chip" target="_blank">Wikipedia "System on a chip"</a>
+  </figcaption>
+</figure>
+
+SoCs có thể được chế tạo bằng nhiều công nghệ khác nhau, bao gồm:
+- Full custom.
+- Standard cell.
+- FPGA.
+
+
+---
+
 # 4. Ứng dụng của SoC
 
-Nhờ khả năng tùy chỉnh cho các yêu cầu có độ chuyên môn hóa cao, SoC có thể được sử dụng trong nhiều ứng dụng khác nhau, từ đồ chơi trẻ em và camera chuông cửa cho đến động cơ công nghiệp. Một số ứng dụng của SoC bao gồm:
+SoC được thiết kế cho các ứng dụng có yêu cầu quá phức tạp để một MCU đơn lẻ có thể xử lý được. Nhờ khả năng tùy chỉnh cho các yêu cầu có độ chuyên môn hóa cao, SoC có thể được sử dụng trong nhiều ứng dụng khác nhau, từ đồ chơi trẻ em và camera chuông cửa cho đến động cơ công nghiệp. Một số ứng dụng của SoC bao gồm:
 
 - **Mobile devices**: SoC tích hợp khả năng kết nối không dây và đa phương tiện trong smartphones và tablets.
 
@@ -122,6 +149,10 @@ Nhờ khả năng tùy chỉnh cho các yêu cầu có độ chuyên môn hóa c
 
 - **Medical devices**: SoC hỗ trợ cải thiện việc chăm sóc bệnh nhân bằng cách nâng cao sức mạnh xử lý và khả năng kết nối của hệ thống theo dõi bệnh nhân, thiết bị chẩn đoán và thiết bị cấy ghép.
 
+- **Drones**: SoCs được sử dụng trong drones để cung cấp processing power và memory cần thiết cho việc điều khiển hoạt động bay, sensors và cameras của drone.
+
+**Virtual Reality (VR)** và **Augmented Reality (AR) headsets**: SoCs cung cấp processing power và memory cần thiết để render nội dung thực tế ảo và thực tế tăng cường.
+
 ---
 
 # 5. Ưu và nhược điểm của SoC
@@ -131,17 +162,111 @@ Việc tích hợp nhiều thành phần lên một con chip duy nhất mang l�
 ## 5.1. Ưu điểm
 
 - **Tối ưu hoá không gian**: SoC chiếm ít không gian hơn so với nhiều linh kiện rời (discrete components), giúp hiện thực hóa việc thiết kế các thiết bị nhỏ hơn.
-- **Hiệu suất năng lượng**: Việc thay thế các linh kiện và mạch lớn bằng SoC dẫn đến giảm đáng kể mức tiêu thụ điện năng và đạt yêu cầu các chỉ số *PPA (Power, Performance, và Area)*.
-- **Rẻ hơn**: Một chip SoC đơn lẻ rẻ hơn so với tập hợp nhiều chip riêng biệt vốn sẽ cần dùng đến nếu không có SoC.
-- **Độ tin cậy**: Một SoC đơn lẻ có ít kết nối hơn và do đó đáng tin cậy hơn đáng kể so với multipart system được kết nối qua một substrate.
-- **Hiệu năng**: Vì các tín hiệu có thể ở lại trên chip, SoC có thể đạt hiệu năng và tốc độ cao hơn multipart solution.
+- **Hiệu suất năng lượng**: Việc thay thế các linh kiện và mạch lớn bằng SoC (giảm số lượng IC, đường kết nối và giao tiếp giữa các chip) dẫn đến giảm đáng kể mức tiêu thụ điện năng và đạt yêu cầu các chỉ số *PPA (Power, Performance, và Area)*.
+- **Hiệu năng**: Vì các tín hiệu có thể ở lại trên chip, độ trễ khi trao đổi dữ liệu giữa các khối được giảm, SoC có thể đạt hiệu năng và tốc độ cao hơn multipart solution.
+- **Độ tin cậy**: Một SoC đơn lẻ có ít kết nối hơn và do đó đáng tin cậy hơn đáng kể so với multipart system được kết nối qua một substrate. Ngoài ra, package của các chip lớn có xu hướng lớn hơn và nhiều I/O pin hơn, từ đó đặt ra thách thức về kỹ thuật đóng gói nhằm ưu tiên hiệu năng thay vì tối ưu không gian (Ví dụ: hơn 1700 I/O pins, Flip-chip packages, Non-hermetic, LGA, PGA, BGA, CCGA,...).
+- **Tăng bảo mật**: Có thể tích hợp Secure Boot, HSM, TrustZone, cryptographic accelerator hoặc các tính năng bảo mật phần cứng khác.
+- **Rẻ hơn**:
+  - Một chip SoC đơn lẻ rẻ hơn so với tập hợp nhiều chip riêng biệt (vốn sẽ cần dùng đến nếu không có SoC). Giống như hầu hết các thiết kế VLSI, tổng chi phí sản xuất một chip lớn sẽ cao hơn so với việc phân bổ các chức năng đó trên nhiều chip nhỏ hơn, do chi phí NRE cao hơn và  tỷ lệ sản xuất thành công thấp hơn (diện tích die càng lớn thì xác suất lỗi trên wafer càng cao, dẫn đến tỷ lệ chip đạt chuẩn thấp hơn).
+  - Application-specific SoC được tối ưu cho một sản phẩm hoặc nhóm ứng dụng cụ thể giúp giảm chi phí BOM và chi phí hệ thống khi sản xuất số lượng lớn.
+
+
+
+
+
+<details markdown="block">
+<summary><i>VLSI Design</i></summary>
+
+> **VLSI Design (Very Large Scale Integration Design)** là ngành hoặc quá trình thiết kế vi mạch (hay mạch tích hợp - IC), nơi người ta tích hợp hàng triệu cho đến hàng tỷ bóng bán dẫn (transistor) lên một con chip silicon duy nhất.
+{: .codeBlock }
+</details>
+
+
+
+
+
+<details markdown="block">
+<summary><i>Chi phí NRE</i></summary>
+
+> Chi phí NRE (Non-recurring engineering) là chi phí ban đầu phải trả một lần duy nhất cho việc nghiên cứu, thiết kế, phát triển và thử nghiệm một sản phẩm mới trước khi đưa vào sản xuất hàng loạt.
+{: .codeBlock }
+</details>
+
+
+
+
+
+<details markdown="block">
+<summary><i>Substrate</i></summary>
+
+> Substrate Là lớp vật liệu nền (như silicon, kính hoặc bo mạch) dùng để đặt, gắn và kết nối các vi mạch, linh kiện điện tử.
+{: .codeBlock }
+</details>
+
+
+
+
+
+
+<details markdown="block">
+<summary><i>Flip-chip packages</i></summary>
+
+> **Flip-chip packages** là công nghệ lật úp chip (mặt mạch hướng xuống), kết nối trực tiếp lên substrate/package qua các micro-bumps thay vì dùng dây nối (wire bonding), giúp giảm điện cảm ký sinh, tăng mật độ I/O và tối ưu tản nhiệt.
+> 
+> Đọc thêm: [Powerel Ectronic Tips, "What is flip-chip technology in IC packaging?"](https://www.powerelectronictips.com/what-is-flip-chip-technology-in-ic-packaging/)
+{: .codeBlock }
+</details>
+
+
+
+
+
+
+<details markdown="block">
+<summary><i>Non-hermetic</i></summary>
+
+> **Non-hermetic** là kiểu đóng gói không kín khí tuyệt đối (vỏ bao bọc không hàn kín hoàn toàn với môi trường ngoài), chi phí thấp hơn, thích hợp cho các ứng dụng thương mại / non-space.
+> 
+> Đọc thêm: [ModuleTek, "Introduction To Hermetic And Non-Hermetic Packaging Of Optical Modules"](https://www.moduletek.com/en/application_notes/an_00137.html)
+{: .codeBlock }
+</details>
+
+
+
+
+<details markdown="block">
+<summary><i>Package / Socket Grid Array Types</i></summary>
+
+> **BGA (Ball Grid Array)**: Dùng các bi hàn bên dưới đáy package để hàn cố định trực tiếp chip lên PCB.
+> 
+> **CCGA (Ceramic Column Grid Array)**: Dùng các cột hợp kim nhỏ (thay vì bi hàn) trên package gốm để hấp thụ và chống chịu ứng suất giãn nở nhiệt tốt hơn cho die lớn.
+> 
+> **LGA (Land Grid Array)**: Các điểm tiếp xúc phẳng (lands) ở đáy chip tì lên các chân lò xo nằm trên socket của mainboard.
+> 
+> **PGA (Pin Grid Array)**: Các chân kim loại nhô ra từ đáy chip cắm xuyên vào các lỗ trên socket.
+{: .codeBlock }
+</details>
+
+
+
+
+<details markdown="block">
+<summary><i>Chi phí BOM</i></summary>
+
+> **Chi phí BOM (Bill of Materials cost)** là tổng chi phí của tất cả các nguyên liệu, linh kiện và phụ tùng cần thiết để tạo ra một sản phẩm hoàn chỉnh theo bảng BOM. Chỉ số này giúp doanh nghiệp biết chính xác số tiền cần dùng để mua vật tư đầu vào cho mỗi đơn vị sản phẩm.
+{: .codeBlock }
+</details>
+
 
 ## 5.2. Nhược điểm
 
-- **Single point of failure**: Với tất cả các thành phần nằm trong một con chip duy nhất, sự cố ở một thành phần sẽ ảnh hưởng đến toàn bộ hệ thống (điều này cũng làm hạn chế khả năng nâng cấp).
-- **Thời gian đưa sản phẩm ra thị trường**: Khi so sánh với các linh kiện có sẵn trên thị trường, việc thiết kế custom SoC đòi hỏi nhiều chuyên môn hơn và các công cụ chuyên dụng với thời gian và chi phí phát triển tăng lên. Các chi phí cao hơn này chỉ có thể thu hồi nếu thị trường cho SoC đủ lớn để hấp thụ chúng.
+- **Single point of failure**: Với tất cả các thành phần nằm trong một con chip duy nhất, sự cố ở một thành phần sẽ ảnh hưởng đến toàn bộ hệ thống (điều này cũng làm hạn chế khả năng nâng cấp). Nên khi một phần quan trọng bị lỗi, thường phải thay thế toàn bộ SoC thay vì chỉ thay một IC riêng lẻ.
+- **Thời gian đưa sản phẩm ra thị trường**: Khi so sánh với các linh kiện có sẵn trên thị trường, việc thiết kế custom SoC đòi hỏi nhiều chuyên môn hơn và các công cụ chuyên dụng với thời gian và chi phí phát triển tăng lên. Các chi phí cao hơn này chỉ có thể thu hồi nếu thị trường cho SoC đủ lớn để hấp thụ chúng. SoC có chu kỳ thiết kế dài và xác thực phức tạp; lỗi phát hiện sau khi tape-out có thể dẫn đến chi phí và thời gian sửa đổi rất lớn.
 - **Mixed analog/digital**: Vì tất cả các thành phần trên một SoC được sản xuất bằng một quy trình duy nhất, không có lựa chọn sử dụng công nghệ tối ưu cho các phần analog. Điều này dẫn đến giảm hiệu năng analog và làm cho SoC phù hợp hơn với digital applications.
 - **Tính linh hoạt:**: Một SoC hoàn toàn phù hợp với nhiệm vụ dự định của nó nhưng có phạm vi hạn chế khi được áp dụng cho bất kỳ nhiệm vụ nào khác.
+- **Khả năngdebug bên trong SoC bị hạn chế**: Các khối bên trong SoC không dễ tiếp cận trực tiếp như các IC rời; cần sử dụng JTAG, trace, debug interface, on-chip monitor hoặc các cơ chế DFT.
+
+
 
 <details markdown="block">
 <summary><i>Mixed analog/digital</i></summary>
@@ -167,6 +292,20 @@ Việc tích hợp nhiều thành phần lên một con chip duy nhất mang l�
 > Để giải quyết nhược điểm trên, các hãng sản xuất đã sử dụng công nghệ **Chiplet-Based Systems &  Heterogeneous Integration**:
 > - **Chiplet-Based Systems**: Chia nhỏ một SoC monolithic cồng kềnh thành các die nhỏ độc lập, mỗi die tối ưu cho một chức năng riêng (compute, I/O, analog, SRAM).
 > - **Heterogeneous Integration**: Tích hợp các die khác process node, khác vật liệu bán dẫn (Silicon kết hợp GaAs/InP cho RF), hoặc khác hãng sản xuất lên cùng một package.
+{: .codeBlock }
+</details>
+
+
+
+
+<details markdown="block">
+<summary><i>DFT</i></summary>
+
+> **Design for Testability (DFT)** là tập hợp các kỹ thuật và cấu trúc logic được chèn thêm vào mạch số trong quá trình thiết kế để giúp việc kiểm tra (test) lỗi của chip sau khi sản xuất trở nên dễ dàng và hiệu quả hơn.
+> 
+> Kỹ thuật phổ biến:
+> - **Scan Design**: Chuyển đổi các flip-flop thông thường thành các flip-flop có khả năng nối tiếp thành chuỗi quét để nạp và đọc dữ liệu kiểm tra.
+> - **MBIST (Memory Built-In Self-Test)**: Tự động kiểm tra các khối bộ nhớ (RAM/ROM) trên chip.
 {: .codeBlock }
 </details>
 
@@ -205,12 +344,29 @@ Nhu cầu về các thiết bị điện tử thông minh hơn, nhanh hơn trong
 
 [1] [Synopsys, "What Is a System-on-a-Chip (SoC)?"](https://www.synopsys.com/glossary/what-is-system-on-a-chip.html)
 
-[2] [NASA Technical Reports Server, "NASA Technical Report"](https://ntrs.nasa.gov/api/citations/20100025590/downloads/20100025590.pdf)
+[2] [NASA Technical Reports Server, "NASA Technical Report"](https://ntrs.nasa.gov/api/citations/20100025590/downloads/20100025590.pdf) (thuộc chương trình NEPP - NASA Electronic Parts and Packaging)
 
 [3] [GeeksforGeeks, "Difference between MCU and SoC"](https://www.geeksforgeeks.org/computer-organization-architecture/difference-between-mcu-and-soc/)
 
 [4] [Ampheo, "Microprocessor vs Microcontroller vs System on Chip: What Are the Differences Among Them?"](https://www.ampheo.com/blog/microprocessor-vs-microcontroller-vs-system-on-chip-what-are-the-differences-among-them?srsltid=AfmBOorVHEWKOxo-kMa8mspqk0cqhepew-P5tmWRJ3dLyD_4Sw4RgJWd)
 
+<!-- 
+
 [5] [element14 Community, "The Difference Between SoCs and MCUs"](https://community.element14.com/technologies/embedded/b/blog/posts/the-difference-between-socs-and-mcus)
 
 [6] [Ezurio, "System on Module vs. System on Chip: What's the Difference?"](https://www.ezurio.com/resources/blog/system-on-module-vs-system-on-chip-what-s-the-difference?srsltid=AfmBOoqoQqondv2QBXF7QxDhUDhTbvlN0ji6dSEDeitY6WbpwfbYltQf)
+
+[7] [JLCPCB, "What Is a System on a Chip (SoC)? A Complete Guide for PCB Designers"](https://jlcpcb.com/blog/system-on-a-chip-ultimate-guide) 
+
+-->
+
+
+
+<!-- 
+https://community.element14.com/learn/learning-center/the-tech-connection/w/documents/20708/the-difference-between-a-system-on-a-chip-soc-a-system-in-a-package-sip-and-a-computer-on-a-module-com
+- System on a Chip (SoC)
+- System in a Package (SiP)
+- Computer on a Module (CoM)
+- Field programmable gate array (FPGA)
+
+ -->

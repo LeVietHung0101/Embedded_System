@@ -58,6 +58,16 @@ https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-qu
   </p>
 </div>
 
+
+==============================================================================================
+
+<details markdown="block">
+<summary><i>___</i></summary>
+
+> ___
+{: .codeBlock }
+</details>
+
 ==============================================================================================
 
 <table class="hover-table">
@@ -103,16 +113,6 @@ https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-qu
     </tr>
   </tbody>
 </table>
-
-
-==============================================================================================
-
-<details markdown="block">
-<summary><i>___</i></summary>
-
-> ___
-{: .codeBlock }
-</details>
 
 ==============================================================================================
 
