@@ -286,7 +286,7 @@ Refer: [Embedded Systems Engineering Roadmap](https://github.com/m3y54m/embedded
 <!-- 
 Các nội dung cần tìm hiểu:
 
-
+Power Distribution Units (PDU)
 FOTA and SOTA in automotive
 
 Understanding the Differences Between CPU, MCU, MPU, SoC, DSP, ECU, GPU, and FPGA
