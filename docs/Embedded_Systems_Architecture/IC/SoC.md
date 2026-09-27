@@ -104,7 +104,7 @@ Vì SoC có tính chuyên môn hóa cao, chúng thường được ứng dụng 
 
 ---
 
-# Các loại SoC
+# 4. Các loại SoC
 
 Có 4 loại SoC:
 
@@ -131,7 +131,7 @@ SoCs có thể được chế tạo bằng nhiều công nghệ khác nhau, bao 
 
 ---
 
-# 4. Ứng dụng của SoC
+# 5. Ứng dụng của SoC
 
 SoC được thiết kế cho các ứng dụng có yêu cầu quá phức tạp để một MCU đơn lẻ có thể xử lý được. Nhờ khả năng tùy chỉnh cho các yêu cầu có độ chuyên môn hóa cao, SoC có thể được sử dụng trong nhiều ứng dụng khác nhau, từ đồ chơi trẻ em và camera chuông cửa cho đến động cơ công nghiệp. Một số ứng dụng của SoC bao gồm:
 
@@ -155,11 +155,11 @@ SoC được thiết kế cho các ứng dụng có yêu cầu quá phức tạp
 
 ---
 
-# 5. Ưu và nhược điểm của SoC
+# 6. Ưu và nhược điểm của SoC
 
 Việc tích hợp nhiều thành phần lên một con chip duy nhất mang lại vô số lợi ích. Nhưng khi xác định xem SoC có phải là giải pháp phù hợp cho một thiết bị hay không, những lợi ích này phải được cân nhắc kỹ lưỡng với các thách thức của một thiết kế phức tạp như vậy.
 
-## 5.1. Ưu điểm
+## 6.1. Ưu điểm
 
 - **Tối ưu hoá không gian**: SoC chiếm ít không gian hơn so với nhiều linh kiện rời (discrete components), giúp hiện thực hóa việc thiết kế các thiết bị nhỏ hơn.
 - **Hiệu suất năng lượng**: Việc thay thế các linh kiện và mạch lớn bằng SoC (giảm số lượng IC, đường kết nối và giao tiếp giữa các chip) dẫn đến giảm đáng kể mức tiêu thụ điện năng và đạt yêu cầu các chỉ số *PPA (Power, Performance, và Area)*.
@@ -257,8 +257,9 @@ Việc tích hợp nhiều thành phần lên một con chip duy nhất mang l�
 {: .codeBlock }
 </details>
 
+---
 
-## 5.2. Nhược điểm
+## 6.2. Nhược điểm
 
 - **Single point of failure**: Với tất cả các thành phần nằm trong một con chip duy nhất, sự cố ở một thành phần sẽ ảnh hưởng đến toàn bộ hệ thống (điều này cũng làm hạn chế khả năng nâng cấp). Nên khi một phần quan trọng bị lỗi, thường phải thay thế toàn bộ SoC thay vì chỉ thay một IC riêng lẻ.
 - **Thời gian đưa sản phẩm ra thị trường**: Khi so sánh với các linh kiện có sẵn trên thị trường, việc thiết kế custom SoC đòi hỏi nhiều chuyên môn hơn và các công cụ chuyên dụng với thời gian và chi phí phát triển tăng lên. Các chi phí cao hơn này chỉ có thể thu hồi nếu thị trường cho SoC đủ lớn để hấp thụ chúng. SoC có chu kỳ thiết kế dài và xác thực phức tạp; lỗi phát hiện sau khi tape-out có thể dẫn đến chi phí và thời gian sửa đổi rất lớn.
@@ -311,7 +312,7 @@ Việc tích hợp nhiều thành phần lên một con chip duy nhất mang l�
 
 ---
 
-# 6. Quy trình thiết kế SoC
+# 7. Quy trình thiết kế SoC
 
 Tương tự như một integrated circuit, quy trình thiết kế cho một SoC liên quan đến một số giai đoạn để lập kế hoạch, tinh chỉnh và sản xuất. Mỗi giai đoạn đòi hỏi sự cộng tác của các chuyên gia bao gồm system architects, design engineers và manufacturers. Các mốc quan trọng chính của dòng chảy thiết kế SoC bao gồm:
 
@@ -331,9 +332,89 @@ Tương tự như một integrated circuit, quy trình thiết kế cho một So
 
 ---
 
-# 7. Thiết kế và mô phỏng SoC
+# 8. Thiết kế và mô phỏng SoC
 
 Nhu cầu về các thiết bị điện tử thông minh hơn, nhanh hơn trong các không gian ngày càng thách thức sẽ tiếp tục thúc đẩy nhu cầu đổi mới SoC. Khi SoC ngày càng trở nên phức tạp để đáp ứng nhu cầu thị trường, các design engineers nên tuân theo một cách tiếp cận chính thức để thiết kế và xác thực các con chip này. **Simulation** là một chìa khóa quan trọng để tạo ra một thiết kế SoC thành công đáp ứng các thông số kỹ thuật thiết kế và sản xuất yêu cầu. Mạng lưới phân phối điện năng ngày càng trở nên phức tạp và các mối quan tâm về năng lượng thấp (low-power) làm thu nhỏ supply voltage. Kết quả là, việc phê duyệt thiết kế dựa trên các tiêu chí về tính toàn vẹn tín hiệu (signal integrity) và tính toàn vẹn nguồn điện (power integrity) là cực kỳ quan trọng.
+
+---
+
+# 9. Ví dụ một số SoC
+
+## 9.1. Broadcom BCM2712
+
+BCM2712 là SoC chính của Raspberry Pi 5, kế thừa dòng BCM27xx nổi tiếng. Nó mang lại hiệu năng mạnh mẽ hơn nhiều so với thế hệ trước, đồng thời vẫn giữ được hệ sinh thái phần mềm lớn và dễ tiếp cận của Raspberry Pi.
+
+Thành phần chính:
+- CPU: 4× Cortex-A76 @ 2.4 GHz (64-bit)
+- GPU: VideoCore VII
+- Hỗ trợ: Dual 4K@60 HDMI, 4Kp60 HEVC decoder, PCIe, MIPI camera/display
+- Bộ nhớ: Giao tiếp LPDDR4X
+- Quy trình: 16 nm
+
+Ứng dụng phổ biến: Máy tính nhúng, media center, edge computing, robot, IoT gateway, giáo dục, digital signage.
+
+Tìm hiểu thêm:
+
+[1] [Github, raspberrypi, "BCM2712"](https://github.com/raspberrypi/documentation/blob/master/documentation/asciidoc/computers/processors/bcm2712.adoc)
+
+[2] [Raspberrypi, "Raspberry Pi 5"](https://www.raspberrypi.com/products/raspberry-pi-5/)
+
+<figure>
+  <img
+    src="{{ site.baseurl }}\assets\images\Broadcom_BCM2712_on_Raspberry_Pi_5.png"
+  />
+  <figcaption>Raspberry Pi 5 trang bị Broadcom BCM2712 (quad-core Arm Cortex A76 processor)<br>
+  Nguồn: <a href="https://www.raspberrypi.com/products/raspberry-pi-5/" target="_blank">Raspberrypi, "Raspberry Pi 5"</a>
+  </figcaption>
+</figure>
+
+---
+
+## 9.2. ESP32 (Espressif)
+
+ESP32 là một trong những SoC IoT phổ biến nhất thế giới nhờ tích hợp sẵn CPU + Wi-Fi + Bluetooth với mức giá rất rẻ. Espressif gọi nó là "low-power MCU-based system-on-chip (SoC)". Ra mắt từ năm 2016, dòng chip này nhanh chóng chiếm lĩnh thị trường nhờ hiệu năng mạnh, tiêu thụ điện thấp và hệ sinh thái phát triển rất phong phú (Arduino, ESP-IDF, MicroPython…). Đây là lựa chọn hàng đầu khi bạn cần kết nối không dây cho thiết bị thông minh.
+
+Thành phần chính (ví dụ ESP32-D0WD / series phổ biến):
+- Core: Dual-core (hoặc single) Xtensa 32-bit LX6, tối đa 240 MHz.
+- Bộ nhớ: ~520 KB SRAM nội, hỗ trợ Flash ngoài (4–16 MB), có biến thể PSRAM.
+- Ngoại vi: Nhiều GPIO, ADC, DAC, PWM, UART, SPI, I2C, I2S, touch sensor, Wi-Fi 802.11 b/g/n, Bluetooth Classic + BLE.
+- Điện áp: 3.3 V.
+
+Ứng dụng phổ biến: Thiết bị IoT, smart home (cảm biến, công tắc thông minh), camera AI edge, voice recognition, data logger không dây, robot kết nối mạng.
+
+Tìm hiểu thêm:
+
+[1] [Espressif, "ESP32"](https://www.espressif.com/en/products/socs/esp32)
+
+[2] [Random Nerd Tutorials, "250+ ESP32 Projects, Tutorials and Guides with Arduino IDE"](https://randomnerdtutorials.com/projects-esp32/)
+
+<figure>
+  <img
+    src="{{ site.baseurl }}\assets\images\ESP32_Pinput_Diagram.png"
+  />
+  <figcaption>ESP32 Pinout Diagram<br>
+  Nguồn: <a href="https://www.nextpcb.com/blog/esp32-pinout-the-ultimate-guide" target="_blank">NextPCB, "ESP32 Pinout Guide: 48 GPIO Pins — Which Ones Will Brick Your Board?"</a>
+  </figcaption>
+</figure>
+
+<details markdown="block">
+<summary><i>ESP32 và ESP-WROOM-32</i></summary>
+
+> **ESP32 (Chip / SoC)**: Là một vi điều khiển dạng chip đơn (SoC) do hãng Espressif Systems sản xuất. Bản thân con chip này chỉ là một vi mạch nhỏ, chưa thể tự bắt sóng Wi-Fi ổn định hay chạy chương trình nếu thiếu các linh kiện bên ngoài.
+>
+> **ESP-WROOM-32 (Module)**: Là một bảng mạch nhỏ (module) tích hợp chính con chip ESP32 bên trong. Nó gắn thêm bộ nhớ Flash ngoài, thạch anh (tinh thể đồng hồ), mạch RF và lớp vỏ kim loại chống nhiễu.
+> <figure>
+>  <img
+>    src="{{ site.baseurl }}\assets\images\ESP32_and_ESP-WROOM-32.png"
+>    style="width: 50%; height: auto;"
+>  />
+>  <figcaption>Espressif ESP-WROOM-32 Wi-Fi & Bluetooth Module<br>
+>  Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Espressif_ESP-WROOM-32_Wi-Fi_%26_Bluetooth_Module.jpg" target="_blank">Wikimedia Commons, "File:Espressif ESP-WROOM-32 Wi-Fi & Bluetooth Module.jpg"</a>
+>  </figcaption>
+></figure>
+{: .codeBlock }
+</details>
+
 
 
 

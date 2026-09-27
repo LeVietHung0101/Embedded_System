@@ -26,9 +26,9 @@ Các thành phần cơ bản của MPU:
 
 ---
 
-# Ưu và nhược điểm của MPU
+# 2. Ưu và nhược điểm của MPU
 
-## Ưu điểm
+## 2.1. Ưu điểm
 
 - Kích thước nhỏ (vài mm² đến vài cm²), dễ tích hợp vào thiết bị portable như smartphone, tablet, embedded computer.
 - Tiêu thụ điện năng thấp (có thể từ dưới 1 W ở chế độ low-power đến vài chục W ở MPU hiệu năng cao).
@@ -46,11 +46,9 @@ Các thành phần cơ bản của MPU:
 {: .codeBlock }
 </details>
 
+---
 
-
-
-
-## Nhược điểm
+## 2.2. Nhược điểm
 
 - Chi phí tổng thể cao (do cần nhiều external components).
 - Bộ vi xử lý không có các thiết bị ngoại vi bên trong (internal peripherals) như ROM, RAM hoặc các thiết bị I/O khác (khác MCU vốn tích hợp Flash, RAM, GPIO, Timer, ADC, UART, SPI, I2C,...).
@@ -113,7 +111,7 @@ Các thành phần cơ bản của MPU:
 
 ---
 
-# Ứng dụng
+# 3. Ứng dụng
 
 - Được sử dụng trong điện thoại di động và television.
 - Là một thành phần trong máy tính bỏ túi và thiết bị chơi game.
@@ -124,9 +122,6 @@ Các thành phần cơ bản của MPU:
 - Trong LASER printers, MPU được sử dụng để in nhanh và tự động sao chép hình ảnh.
 - Ngoài việc được sử dụng trong digital telephone sets, modems và telephones, MPU còn được sử dụng trong hệ thống đặt chỗ đường sắt và hàng không (reservation systems).
 - MPU được sử dụng trong thiết bị y tế để đo huyết áp và nhiệt độ.
-
-
-
 
 ---
 

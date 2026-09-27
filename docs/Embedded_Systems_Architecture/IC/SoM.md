@@ -76,9 +76,7 @@ Các sản phẩm thực thế:
 
 --- 
 
-# 3. Ưu điểm
-
-## Lợi ích của SoM
+# 3. Lợi ích của SoM
 
 1. **Đơn giản hóa và rút ngắn thời gian thiết kế**: Ưu điểm lớn nhất của SoM là đơn giản hóa và tăng tốc quá trình thiết kế. Các kỹ sư có thể bắt đầu với một module có sẵn, tích hợp các phần phức tạp của hệ thống, qua đó giảm đáng kể công sức cần thiết cho hardware design. Tất cả những thách thức về high-speed memory layout, wireless RF design, power sequencing đều đã được xử lý trên module. Điều này cho phép các development teams tích hợp SoM và tập trung nhiều hơn vào application logic của riêng họ. Nhờ đó, sản phẩm có thể được prototype và đưa ra thị trường nhanh hơn đáng kể (*shorter development cycle*).
 
@@ -133,6 +131,69 @@ Các sản phẩm thực thế:
 > **Future-proofing** là việc thiết kế sản phẩm/hệ thống sao cho có khả năng thích ứng với các công nghệ, tiêu chuẩn hoặc yêu cầu mới trong tương lai, hạn chế việc phải thay thế toàn bộ hệ thống.
 {: .codeBlock }
 </details>
+
+---
+
+# 4. Ví dụ một số SoM
+
+## 4.1. Raspberry Pi Compute Module 5 (CM5)
+
+Raspberry Pi Compute Module 5 là phiên bản module hóa của [Raspberry Pi 5](https://raspberrypi.vn/san-pham/mach-may-tinh-raspberry-pi-5), được thiết kế dành cho sản phẩm thương mại và công nghiệp. Nó giữ nguyên hiệu năng mạnh của Pi 5 nhưng loại bỏ các cổng kết nối sẵn có, thay vào đó dùng connector mật độ cao để gắn lên carrier board tùy chỉnh. Đây là lựa chọn rất phổ biến nhờ hệ sinh thái phần mềm lớn và cam kết hỗ trợ dài hạn.
+
+Thành phần chính:
+- SoC: Broadcom BCM2712 (4× Cortex-A76 @ 2.4 GHz)
+- RAM: 2 / 4 / 8 / 16 GB LPDDR4X
+- Lưu trữ: 0 GB (Lite) hoặc 16 / 32 / 64 GB eMMC
+- Kết nối: PCIe Gen2 x1, USB 3.0, Gigabit Ethernet, tùy chọn Wi-Fi 5 + Bluetooth 5.0
+- Kích thước: 55×40 mm, 2 connector 100-pin
+
+Ứng dụng phổ biến: HMI công nghiệp, gateway IoT, thiết bị nhúng, máy POS, digital signage, robot, hệ thống camera thông minh.
+
+Tìm hiểu thêm:
+
+[1] [Raspberrypi, "Raspberry Pi Compute Module 5"](https://www.raspberrypi.com/products/compute-module-5/?variant=cm5-104032)
+
+[2] [Jeff Geerling, "Raspberry Pi CM5 is 2-3x faster, drop-in upgrade (mostly)"](https://www.jeffgeerling.com/blog/2024/raspberry-pi-cm5-2-3x-faster-drop-upgrade-mostly/)
+
+
+<figure>
+  <img
+    src="{{ site.baseurl }}\assets\images\Raspberry_Pi_Compute_Modules_5_CM5.png"
+  />
+  <figcaption>Nguồn: <a href="https://www.mouser.vn/vi/new/raspberry-pi/raspberry-pi-compute-modules-5/?srsltid=AU7gw4W-5PMHhu1n4u1UCB1N6mmRHimTkpArquwKtATEP3J332VylJKO" target="_blank">Mouser, "Raspberry Pi Compute Modules 5 (CM5)"</a>
+  </figcaption>
+</figure>
+
+---
+
+## 4.2. NVIDIA Jetson Orin Nano
+
+NVIDIA Jetson Orin Nano là SoM chuyên dụng cho Edge AI và computer vision. Nó tích hợp GPU mạnh cùng CPU ARM, cho phép chạy các mô hình AI (object detection, LLM nhỏ, vision language model) ngay tại thiết bị mà không cần cloud. Module này thường dùng chung form factor SODIMM với các thế hệ Jetson trước.
+
+Thành phần chính:
+- CPU: 6× Cortex-A78AE
+- GPU: NVIDIA Ampere (1024 CUDA cores + Tensor Cores)
+- Hiệu năng AI: lên đến ~40 TOPS (INT8)
+- RAM: 4 GB hoặc 8 GB LPDDR5
+- Lưu trữ: hỗ trợ eMMC / NVMe qua carrier
+- Kích thước: ~69.6 × 45 mm (SODIMM-style)
+
+Ứng dụng phổ biến: Robot thông minh, camera AI, autonomous machine, thiết bị y tế, smart factory, drone, edge inference.
+
+Tìm hiểu thêm:
+
+[1] [NVIDIA, "NVIDIA Jetson Orin"](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/)
+
+[2] [NVIDIA, "Jetson Orin NX Series and Jetson Orin Nano Series Product Design Guide"](https://developer.download.nvidia.com/assets/embedded/secure/jetson/orin_nx/docs/Jetson-Orin-NX-Nano-Design-Guide_DG-10931-001_v1.5.pdf?__token__=exp=1790513382~hmac=31f9e4e3e8082d97adb4e4df6c3f8eaf0ce88cd249640108e2f134e3f941c446)
+
+<figure>
+  <img
+    src="{{ site.baseurl }}\assets\images\N-VIDIA_Jetson_Orin_Nano_AI_Development_Module.png"
+    style="width: 75%; height: auto;"
+  />
+  <figcaption>Nguồn: <a href="https://www.waveshare.com/Jetson-Orin-Nano.htm" target="_blank">Waveshare, "N-VIDIA Jetson Orin Nano AI Development Module, System-on-Module, NANO Size, Options for Memory"</a>
+  </figcaption>
+</figure>
 
 ---
 
