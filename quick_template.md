@@ -247,6 +247,7 @@ Trình bày lại nội dung sau bằng tiếng Việt.
 
 Yêu cầu:
 - Dịch dễ hiểu, giữ văn phong kỹ thuật.
+- Nội dung được lấy từ nhiều nguồn, hãy tổng hợp chúng.
 - Trình bày theo dạng "condensed version": rút gọn câu chữ nhưng vẫn giữ gần như toàn bộ thông tin kỹ thuật quan trọng.
 - Ưu tiên diễn đạt trực tiếp, loại bỏ các từ ngữ dư thừa hoặc lặp lại, nhưng không làm thay đổi ý nghĩa.
 - Giữ nguyên mọi thuật ngữ kỹ thuật, keyword và tên riêng bằng tiếng Anh.
