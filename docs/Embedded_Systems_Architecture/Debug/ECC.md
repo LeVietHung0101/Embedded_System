@@ -85,7 +85,7 @@ ECC giảm đáng kể khả năng xảy ra lỗi nhưng không loại bỏ hoà
 
 ## 2.1. Parity checking
 
-**Parity checking** là phương pháp phát hiện lỗi đơn giản được dùng trong SRAM. Trong quá trình ghi dữ liệu (data words), thuật toán này dùng các bit từ dữ liệu để tạo ra các parity bit (bit kiểm tra chẵn lẻ), rồi kết hợp chúng vào các data words cuối cùng, trước khi lưu trữ vào mảng bộ nhớ bên trong (internal memory array). Hạn chế của thuật toán này là chỉ có thể phát hiện lỗi chứ không thể sửa lỗi.
+**Parity checking** là phương pháp phát hiện lỗi đơn giản được dùng trong SRAM. Trong quá trình ghi dữ liệu (data words), thuật toán này dùng các bit data word để tạo ra các parity bit (bit kiểm tra chẵn lẻ), rồi kết hợp chúng vào các data words cuối cùng, trước khi lưu trữ vào mảng bộ nhớ bên trong (internal memory array). Hạn chế của thuật toán này là chỉ có thể phát hiện lỗi chứ không thể sửa lỗi.
 
 {: .highlight }
 > Ví dụ, sử dụng <strong>Even Parity</strong> với dữ liệu 4 bit:
@@ -294,11 +294,37 @@ ECC mặc định đã được bật vì đây là cơ chế an toàn then ch�
 
 ---
 
-## 3.2. Các Thanh ghi
+## 3.2. SRAM Error Detection & Correction (EDC/ECC)
+
+Tất cả các **SRAM** đều được triển khai với ECC cho dữ liệu được lưu trữ. Đa số SRAM đều có ECC được tính toán chỉ trên dữ liệu.
+
+Trong thao tác **WRITE**, các bit checksum (bit ECC) cho input data word được tạo ra bằng bộ mã hóa ECC (ECC encoder). Các bit này được lưu trữ trong SRAM cùng với và bổ sung cho data word.
+
+Trong thao tác **READ**, ECC encoder so sánh "data word đọc được và các bit ECC" với "giá trị ECC mong đợi". Nếu do bất kỳ lỗi phần cứng ngẫu nhiên, soft error,... dẫn đến data word lưu trong SRAM bị hỏng, sẽ có sự không khớp so với giá trị ECC mong đợi. Điều này được thông báo như một lỗi và báo động (alarm).
+
+Hai loại mã ECC khác nhau được sử dụng trong hệ thống cho các SRAM khác nhau:
+- Mã **SECDED** có thể phát hiện tối đa lỗi hai bit (DBE), đồng thời sửa được lỗi một bit (SBE). Nghĩa là khoảng cách Hamming của các mã này là $k = 4$.
+- Mã **DED** chỉ có thể phát hiện tối đa lỗi hai bit, nhưng không thể sửa bất kỳ lỗi nào. <code>ECCS.ECE</code> vẫn tồn tại và có thể được ghi và đọc cho <code>SSH</code> với <code>DED</code>. Tuy nhiên, nó không có chức năng.
+
+Có hai thông báo lỗi được gửi đến **SMU** từ ECC encoder thông qua các báo động CE và UCE.  
+Đối với các SRAM dùng ECC SECDED:  
+- Báo động lỗi có thể sửa **CE – Correctable Error**: SBE đã được sửa hoặc phát hiện.
+- Báo động lỗi không thể sửa **UCE – Uncorrectable Error**: DBE đã được phát hiện.
+
+Đối với các SRAM dùng ECC DED, chỉ có một thông báo lỗi duy nhất và được thông báo bằng lỗi DBE cùng báo động UCE.
+
+- Thông báo **SBE** (tùy thuộc vào <code>ECCS.ECE</code>, được chuyển tiếp như một nguồn trong báo động CE hoặc UCE) cũng như theo dõi trong ETRR/ERRINFO được kích hoạt bằng cách đặt **ALMSRCS.SBE = 1**.
+- Thông báo **DBE** (được chuyển tiếp như một nguồn trong báo động UCE) cũng như theo dõi trong <code>ETRR/ERRINFO</code> được kích hoạt bằng cách đặt **ALMSRCS.DBE = 1**.
+
+Lưu ý rằng các bit <code>ECCS.CENE</code>, <code>UCENE</code> và <code>TRE</code> hoạt động như các enable toàn cục bổ sung và phải được đặt để các thông báo báo động ECC được gửi đến SMU cũng như để kích hoạt theo dõi lỗi trong <code>ETRR/ERRINFO</code>.
+
+---
+
+## 3.3. Các Thanh ghi
 
 > *Application firmware is running on Core0 (trên RAM).*
 
-### 3.2.1. ECCR - PFI ECC Read Register
+### 3.3.1. ECCR - PFI ECC Read Register
 
 ECC Read Register sẽ lưu trữ ECC checksum được đọc trong lần truy cập gần nhất đọc bộ nhớ NVM tại PFLASH BANK.
 - Offset: <code>0x00000000</code>
@@ -306,14 +332,14 @@ ECC Read Register sẽ lưu trữ ECC checksum được đọc trong lần truy 
 - <code>PFI0_ECCR.RCODE</code> ([21:0] bits): Error Correction Read Code - ECC code, read from the Flash read buffer with last data read operation.
 
 
-### 3.2.2. HF_ECCR - DF0 ECC Read Register
+### 3.3.2. HF_ECCR - DF0 ECC Read Register
 
 ECC Read Register phải lưu trữ ECC checksum đọc được trong lần truy cập gần nhất đọc NVM tại DF0 (bao gồm cả CFS và UCB) và DF1 (khi DF1 được cấu hình ở chế độ không phải HSM_exclusive), trong trường hợp thao tác đọc được khởi tạo thông qua giao diện phụ (slave interface) DMU SRI.
 - Offset: <code>0x0000040</code>
 - Application Reset Value: <code>0x00000000</code>
 - <code>HF_ECCR.RCODE</code> ([21:0] bits): Error Correction Read Code - ECC checksum read during the last NVM read access.
 
-### 3.2.3. HF_ECCW - DF0 ECC Write Register
+### 3.3.3. HF_ECCW - DF0 ECC Write Register
 
 ECC Write Register chứa các bit dùng để vô hiệu hóa quá trình mã hóa ECC (ECC encoding) cho các khối PFLASH và DF0.
 - Offset: <code>0x0000004C</code>
@@ -326,7 +352,8 @@ ECC Write Register chứa các bit dùng để vô hiệu hóa quá trình mã h
 
 ---
 
-Các thanh ghi và thông tin khác:
+### 3.3.4. Các thanh ghi và thông tin khác
+
 - Alarm Sources Configuration Register, page 1240/2080, AURIX TC3xx Family User's Manual Part 1
 - Error Information Register x, page 1243/2080, AURIX TC3xx Family User's Manual Part 1
 - SRAM Error Detection & Correction (EDC/ECC), page 1244/2080, AURIX TC3xx Family User's Manual Part 1
@@ -335,9 +362,9 @@ Các thanh ghi và thông tin khác:
 
 ---
 
-## 3.3. Cách chèn lỗi vào PFLASH của AURIX™ TC3xx MCU
+## 3.4. Cách chèn lỗi vào PFLASH của AURIX™ TC3xx MCU
 
-## 3.3.1. Cách 1
+### 3.4.1. Cách 1
 
 1. Programming data với chức năng tạo ECC tự động được bật.
 2. Đọc data vừa được lập trình để hardware tự tính giá trị ECC và lưu vào trong trong <code>PFI0_ECCR.RCODE</code>.
@@ -346,7 +373,7 @@ Các thanh ghi và thông tin khác:
 5. Thiết lập thêm bits vào dữ liệu đọc được (read data) để tạo các lỗi bit trong data cần lập trình.
 6. Reprogram với data trên.
 
-## 3.3.2. Cách 2
+### 3.4.2. Cách 2
 
 1. Ghi data vào vùng non-cacheable address của PFLASH (<code>0xAxxxxxxx</code>).
 2. Đọc data vừa được ghi; và đọc giá trị ECC được lưu tại <code>HF_ECCR.RCODE</code>.
