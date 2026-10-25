@@ -687,7 +687,7 @@ Trong cơ chế này, memory controller đọc và ghi ECC code cùng với actu
     src="{{ site.baseurl }}\assets\images\WR_and_RD operation_flows_with_Side_band_ECC.png"
     style="width: 90%; height: auto;"
   />
-  <figcaption>Các luồng thao tác ghi (WR) và đọc (RD) với side-band ECC<br>
+  <figcaption>Các luồng thao tác ghi (WR) và đọc (RD) với Side-band ECC<br>
   Nguồn: <a href="https://www.synopsys.com/articles/ecc-memory-error-correction.html" target="_blank">Synopsys, "Error Correction Code (ECC) in DDR Memories"</a>
   </figcaption>
 </figure>
@@ -747,7 +747,7 @@ Các high-performance controller giảm độ trễ do overhead bằng cách gom
     src="{{ site.baseurl }}\assets\images\WR_and_RD operation_flows_with_Inline_ECC.png"
     style="width: 90%; height: auto;"
   />
-  <figcaption>Các luồng thao tác ghi (WR) và đọc (RD) với side-band ECC<br>
+  <figcaption>Các luồng thao tác ghi (WR) và đọc (RD) với Inline ECC<br>
   Nguồn: <a href="https://www.synopsys.com/articles/ecc-memory-error-correction.html" target="_blank">Synopsys, "Error Correction Code (ECC) in DDR Memories"</a>
   </figcaption>
 </figure>
@@ -840,7 +840,7 @@ On-die ECC tăng cường khả năng bảo vệ trước single-bit errors bên
     src="{{ site.baseurl }}\assets\images\WR_and_RD operation_flows_with_On_die_ECC.png"
     style="width: 90%; height: auto;"
   />
-  <figcaption>Các luồng thao tác ghi (WR) và đọc (RD) với side-band ECC<br>
+  <figcaption>Các luồng thao tác ghi (WR) và đọc (RD) với On-die ECC<br>
   Nguồn: <a href="https://www.synopsys.com/articles/ecc-memory-error-correction.html" target="_blank">Synopsys, "Error Correction Code (ECC) in DDR Memories"</a>
   </figcaption>
 </figure>
@@ -868,7 +868,7 @@ Link-ECC không bảo vệ trước single-bit errors xảy ra trong memory arra
     src="{{ site.baseurl }}\assets\images\WR_and_RD operation_flows_with_Link_ECC.png"
     style="width: 90%; height: auto;"
   />
-  <figcaption>Các luồng thao tác ghi (WR) và đọc (RD) với side-band ECC<br>
+  <figcaption>Các luồng thao tác ghi (WR) và đọc (RD) với Link ECC<br>
   Nguồn: <a href="https://www.synopsys.com/articles/ecc-memory-error-correction.html" target="_blank">Synopsys, "Error Correction Code (ECC) in DDR Memories"</a>
   </figcaption>
 </figure>
