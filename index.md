@@ -283,6 +283,58 @@ Refer: [Embedded Systems Engineering Roadmap](https://github.com/m3y54m/embedded
 
 ---
 
+
+
+
+<!-- 
+
+Architecture overview (số core, loại core, lockstep/checker, clock domain)
+
+Memory map + Flash organization (PFlash/DFlash/Work Flash, bank, sector size, dual-bank/swap, address map cho FBL/App/RTSW/HSM)
+
+Flash erase/program polarity & ECC behavior (erased = 0 hay 1? đọc erased sector có gây ECC error không?)
+
+Safety & Debug registers quan trọng (ECC, Trap/Exception, SMU/FMEDA related, MPU/MPU-like)
+
+Security (HSM/SHE/eSHE/HSE có không? domain riêng? key storage?)
+
+Linker script / Memory partitioning (FBL, App, Calibration, Shared, HSM private)
+
+Startup / Boot sequence / Vector table / Core synchronization (đặc biệt multi-core)
+
+Tool chain quirks (compiler, linker, debugger – Lauterbach, iSystem, GHS, IAR…) 
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- 
 Các nội dung cần tìm hiểu:
 

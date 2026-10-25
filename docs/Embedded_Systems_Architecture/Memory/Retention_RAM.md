@@ -51,6 +51,6 @@ nav_order: 3
 
 ---
 
-# Tham khảo:
+# Tham khảo
 
 [1] [Renesas, "Difference between Local RAM, Global RAM, Retention RAM and Trace RAM"](https://community.renesas.com/mcu/rh850/f/rh850-rl78f/34033/difference-between-local-ram-global-ram-retention-ram-and-trace-ram)
