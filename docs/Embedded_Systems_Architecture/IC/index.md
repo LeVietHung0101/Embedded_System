@@ -16,7 +16,101 @@ has_children: true
 
 ---
 
-# 1. So sánh MCU và SoC
+# 1. So sánh MCU 8-bit và 32-bit
+
+## 1.1. So sánh tổng quan
+
+<table class="hover-table">
+  <thead>
+    <tr>
+      <th>Tiêu chí</th>
+      <th>MCU 8-bit</th>
+      <th>MCU 32-bit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Data throughput</td>
+      <td>Xử lý dữ liệu 8-bit (1 byte) trong một phép toán cơ bản.</td>
+      <td>Xử lý dữ liệu 32-bit (4 byte) trong một phép toán cơ bản.</td>
+    </tr>
+    <tr>
+      <td>Memory addressing</td>
+      <td>Không gian địa chỉ thường nhỏ (thường ≤ 64 KB), phụ thuộc kiến trúc MCU.</td>
+      <td>Có thể hỗ trợ không gian địa chỉ 4 GB với địa chỉ 32-bit.</td>
+    </tr>
+    <tr>
+      <td>Floating-point</td>
+      <td>Thường xử lý bằng phần mềm (software emulation).</td>
+      <td>Có thể tích hợp FPU để thực hiện phép toán floating-point bằng phần cứng.</td>
+    </tr>
+    <tr>
+      <td>RTOS</td>
+      <td>Thường sử dụng bare-metal firmware.</td>
+      <td>Hỗ trợ RTOS và các ứng dụng đa nhiệm phức tạp.</td>
+    </tr>
+    <tr>
+      <td>Application</td>
+      <td>Điều khiển LED, đọc sensor cơ bản, giao tiếp serial tốc độ thấp.</td>
+      <td>DSP workload, xử lý tín hiệu, IoT phức tạp, audio/video, edge AI, điều khiển động cơ phức tạp và ứng dụng yêu cầu RTOS.</td>
+    </tr>
+    <tr>
+      <td>Functional safety</td>
+      <td>Khả năng xử lý và tài nguyên thường hạn chế đối với các ứng dụng safety phức tạp.</td>
+      <td>Thường được lựa chọn cho các ứng dụng yêu cầu functional safety.</td>
+    </tr>
+    <tr>
+      <td>Ví dụ kiến trúc</td>
+      <td>PIC, AVR, 8051, Silicon Labs BB5x</td>
+      <td>Arm Cortex-M, PIC32, AVR32, RISC-V</td>
+    </tr>
+  </tbody>
+</table>
+
+Lưu ý:
+- 8-bit và 32-bit biểu thị độ rộng xử lý dữ liệu tự nhiên của CPU, không có nghĩa MCU luôn xử lý chính xác 1 byte hoặc 4 byte trong mọi chu kỳ clock.
+- Không gian địa chỉ 4 GB là giới hạn lý thuyết của địa chỉ 32-bit, không đồng nghĩa MCU có sẵn 4 GB RAM.
+- RTOS và functional safety không bắt buộc phải sử dụng MCU 32-bit. Một số MCU 8-bit vẫn có thể chạy RTOS đơn giản; việc đáp ứng safety phụ thuộc vào kiến trúc, phần cứng, phần mềm và chứng nhận của hệ thống.
+
+## 1.2. Ưu điểm từng loại
+
+**MCU 8-bit**
+- Chi phí thấp: lựa chọn tối ưu cho dự án nhạy cảm về giá.
+- Tiêu thụ năng lượng thấp: phù hợp thiết bị chạy pin lâu dài.
+- Code size nhỏ: tiết kiệm bộ nhớ flash.
+- Dễ học, dễ dùng: công cụ phát triển và cộng đồng hỗ trợ phong phú.
+- Sẵn có nhiều lựa chọn trên thị trường.
+
+**MCU 32-bit**
+- Hiệu năng xử lý cao: xử lý được FFT, audio/video chất lượng cao, image processing, edge computing.
+- Bộ nhớ lớn hơn: hỗ trợ nhiều RAM/Flash hơn, chạy được thuật toán phức tạp hoặc RTOS.
+- Peripheral phong phú: USB, Ethernet, CAN, SDMMC, ADC độ phân giải cao (20-bit), DAC, timer nâng cao,...
+- Hiệu quả mã nguồn tốt hơn cho các tác vụ phức tạp (xử lý nhiều bit/chu kỳ).
+- Hệ sinh thái thư viện & driver mạnh mẽ, giúp phát triển nhanh hơn.
+
+
+## 1.3. Nhược điểm của từng loại
+
+**MCU 8-bit**
+- Không gian bộ nhớ hạn chế: khó thực hiện tác vụ phức tạp hoặc xử lý lượng dữ liệu lớn.
+- Tốc độ xử lý thấp hơn: hạn chế với ứng dụng real-time hoặc truyền dữ liệu tốc độ cao.
+
+**MCU 32-bit**
+- Tiêu thụ năng lượng phức tạp hơn: cần quản lý nhiều chế độ năng lượng.
+- Độ phức tạp cao hơn: khó lập trình và debug hơn so với 8-bit.
+- Code size có thể lớn hơn đối với các tác vụ đơn giản (tùy thuộc vào mức tối ưu hóa).
+
+
+{: .note }
+> Chọn MCU 8-bit khi ưu tiên: chi phí thấp, tiêu thụ điện thấp, ứng dụng đơn giản (sensor IoT cơ bản, điều khiển đơn giản).
+>
+> Chọn MCU 32-bit khi cần: hiệu năng cao, bộ nhớ lớn, peripheral nâng cao, xử lý dữ liệu phức tạp hoặc chạy RTOS / edge AI.
+
+
+
+---
+
+# 2. So sánh MCU và SoC
 
 <table class="hover-table">
   <thead>
@@ -110,9 +204,9 @@ has_children: true
 
 ---
 
-# 2. So sánh SoC và SoM
+# 3. So sánh SoC và SoM
 
-## 2.1. Hiệu năng, năng lượng và kích thước
+## 3.1. Hiệu năng, năng lượng và kích thước
 
 SoC là một integrated chip nên thường được tối ưu tốt về hiệu năng, hiệu suất năng lượng. Khi sử dụng SoC trực tiếp trên custom board cho các thiết bị chạy bằng pin hoặc có kích thước siêu nhỏ (ultra-compact devices), SoC có thể đạt mức tiêu thụ điện thấp hơn và footprint nhỏ hơn (chiếm ít diện tích hơn) so với việc sử dụng SoM.
 
@@ -194,7 +288,7 @@ Do hiệu năng phụ thuộc vào con chip bên trong, nên khi so sánh giữa
 
 ---
 
-## 2.2. Sự tích hợp và tính linh hoạt
+## 3.2. Sự tích hợp và tính linh hoạt
 
 **SoC**
 
@@ -235,7 +329,7 @@ Cách tiếp cận này giúp:
 
 ---
 
-## 2.3. Nỗ lực phát triển và thời gian đưa sản phẩm ra thị trường
+## 3.3. Nỗ lực phát triển và thời gian đưa sản phẩm ra thị trường
 
 **SoC (Custom Board)**
 
@@ -288,7 +382,7 @@ Tuy nhiên, SoM có thể không đạt unit cost thấp nhất hoặc mức int
 
 ---
 
-## 2.4. Cân nhắc về chi phí
+## 3.4. Cân nhắc về chi phí
 
 **1. Development Cost**
 
@@ -357,7 +451,7 @@ Với thiết kế dựa trên SoC, doanh nghiệp phải tự tìm kiếm ngu�
 
 ---
 
-## 2.5. Độ tin cậy và vòng đời sản phẩm
+## 3.5. Độ tin cậy và vòng đời sản phẩm
 
 Độ tin cậy (reliability) ở đây gồm hai khía cạnh: hardware reliability trong thực tế sử dụng và khả năng maintenance/consistency trong suốt vòng đời sản phẩm.
 
@@ -435,7 +529,7 @@ Với SoC và custom design, vẫn có sự phụ thuộc vào nhà sản xuất
 
 ---
 
-## 2.6. Ưu điểm và nhược điểm
+## 3.6. Ưu điểm và nhược điểm
 
 <table class="hover-table">
   <thead>
@@ -476,7 +570,7 @@ Với SoC và custom design, vẫn có sự phụ thuộc vào nhà sản xuất
 
 ---
 
-# 3. So sánh CPU, MCU, MPU, và SoC
+# 4. So sánh CPU, MCU, MPU, và SoC
 
 Mỗi loại processing unit phục vụ các mục đích khác nhau, và sự lựa chọn phụ thuộc vào yêu cầu cụ thể của ứng dụng như hiệu năng, tiêu thụ điện năng và mức độ tích hợp.
 - **CPU:** Bộ xử lý đa năng dành cho máy tính hiệu năng cao.
@@ -547,5 +641,10 @@ Mỗi loại processing unit phục vụ các mục đích khác nhau, và sự 
 [3] [Ezurio, "System on Module vs. System on Chip: What's the Difference?"](https://www.ezurio.com/resources/blog/system-on-module-vs-system-on-chip-what-s-the-difference?srsltid=AfmBOoqoQqondv2QBXF7QxDhUDhTbvlN0ji6dSEDeitY6WbpwfbYltQf)
 
 [4] [DEV Community, "What are the differences between CPU, MCU, MPU, and SoC, and what are their respective representative chips?"](https://dev.to/carolineee/what-are-the-differences-between-cpu-mcu-mpu-and-soc-and-what-are-their-respective-bi2)
+
+[5] [Infineon, "Types of microcontrollers: families and classifications explained"](https://www.infineon.com/product-information/types-of-microcontrollers-families-and-classifications-explained#classified)
+
+[6] [Silicon Labs, "Choose the Best MCU Architecture for IoT Development"](https://www.silabs.com/blog/choose-the-best-mcu-architecture-for-iot-development)
+
 
 <!-- [5] [element14 Community, "The Difference Between SoCs and MCUs"](https://community.element14.com/technologies/embedded/b/blog/posts/the-difference-between-socs-and-mcus) -->
